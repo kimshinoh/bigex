@@ -177,7 +177,7 @@ body{
 
 .home__filter{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .home__content{
@@ -198,6 +198,10 @@ body{
     font-weight: 600;
     color: rgb(17, 6, 6);
     border: 2px solid var(--border-color);
+}
+.tableProImg{
+    max-width: 100%;
+    max-height: 100px;
 }
 /* footer */
 .footer{

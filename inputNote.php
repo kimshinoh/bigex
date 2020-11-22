@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./interface/css/normalize.css">
     <link rel="shortcut icon" type="image/x-icon" href="./interface/img/icon.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
-    <title>Nhà Cung Cấp</title>
+    <title>Nhập kho</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                         </li>
                         <li class="header__navBar-item">
                             <span class="header__navBar-item-nocursor">Kết nối</span>
-                            <a href="fb.com/n.n.trg" class="header__navBar-icon-link">
+                            <a href="https://www.facebook.com/n.n.trg" class="header__navBar-icon-link">
                                 <i class="header__navBar-icon fab fa-facebook"></i>
                             </a>
                             <a href="" class="header__navBar-icon-link">
@@ -49,7 +49,7 @@
                                 </a>
                             </a>
                         </li>
-
+                       
                     </ul>
                 </nav>
                 <div class="header__logo">
@@ -149,12 +149,12 @@
         <div class="container">
             <div class="optionBar">
                 <div class="grid">
-                <ul class="optionBar-list">
-                        <li class="optionBar-item">
-                            <a class="optionBar-item-link " href="#">Tổng Quan</a>
+                    <ul class="optionBar-list">
+                        <li class="optionBar-item  optionBar-item-active">
+                            <a class="optionBar-item-link" href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item optionBar-item-active">
-                            <a class="optionBar-item-link" href="/genPro.php">Hàng Hóa</a>
+                        <li class="optionBar-item">
+                            <a class="optionBar-item-link" href="/genSup.php">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="#">Khách Hàng</a>
@@ -172,8 +172,8 @@
                                     Chức Năng
                                 </h3>
                                     <ul class="catogory-list">
-                                        <li class="category-item" onclick="showFormAdd()">
-                                        <i class="fas fa-plus"></i>  Thêm sản phẩm
+                                    <li class="category-item" onclick="showFormAdd()">
+                                            <i class="fas fa-plus"></i>  Thêm phiếu nhập
                                         </li>
                                     </ul>
                             </nav>
@@ -181,22 +181,17 @@
                         <div class="grid_column-10">
                             <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="#"  class="btn btn-home">Tồn Kho</a>
-                                <a href="#" class="btn btn-home btn-main">Sản Phẩm</a>
-                                <a href="#" class="btn btn-home">Nhà Cung Cấp</a>
-                                <a href="#" class="btn btn-home">Khách hàng</a>
+                                <a href="#" class="btn btn-home">Tồn Kho</a>
+                                <a href="#" class="btn btn-home btn-main">Nhập Kho</a>
+                                <a href="#" class="btn btn-home ">Xuất Kho</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
                                     <table  class="content">
                                         <tr class="tablePro">
-                                            <th style="width: 3%;">ID</th>
-                                            <th style="width: 23%;">Tên Sản Phẩm</th>
-                                            <th style="width: 3%;">Đơn Vị</th>
-                                            <th style="width: 20%;">Nhà Cung Cấp</th>
-                                            <th style="width: 22%;">Hình Ảnh</th>
-                                            <th style="width: 22%;">QrCode</th>
-                                            <th style="width: 8%;">#</th>
+                                            <th style="width: 40%;">Mã Phiếu</th>
+                                            <th style="width: 50%;">Thời Gian</th>
+                                            <th style="width: 10%;">#</th>
                                         </tr>
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
@@ -204,47 +199,23 @@
                                                 echo 'Lỗi';
 
                                             } else {
-                                                $select_table = 'select * from object order by Id+0 asc';
+                                                $select_table = 'select * from input';
+
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
                                                     
                                                     $i=0;
-                                                while($r=mysqli_fetch_array($value)){
-                                                    $i++;
-                                                    $unit = '';
-                                                    $id = $r['Id'];
-                                                    $idUnit = $r['IdUnit'];
-                                                    switch($idUnit) {
-                                                        case 1: 
-                                                            $unit = 'Cái';
-                                                        break;
-                                                        case 2:
-                                                            $unit = 'Quả';
-                                                        break;
-                                                        case 3: 
-                                                            $unit = 'Chiếc';
-                                                        break;
-                                                        case 4:
-                                                            $unit = 'Bộ';
-                                                        break;
-                                                        case 5:
-                                                            $unit = 'Quyển';
-                                                        break;
-                                                        case 6: 
-                                                            $unit = 'Thùng';
-                                                        break;
+                                                    while($r=mysqli_fetch_array($value)){
+                                                       
+                                                        $i++;
+                                                        $id = $r['Id'];
+                                                        echo '<tr class="tableProItem">';
+                                                        echo '<td>'.$id.'</td>';
+                                                        echo '<td>'.$r['DateInput'].'</td>';
+                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
+                                                        echo '</tr>';
+                                                        
                                                     }
-                                                    echo '<tr class="tableProItem">';
-                                                    echo '<td>'.$r['Id'].'</td>';
-                                                    echo '<td>'.$r['DisplayName'].'</td>';
-                                                    echo '<td>'.$unit.'</td>';
-                                                    echo '<td>'.$r['IdSuplier'].'</td>';
-                                                    echo '<td>'.$r['QRCode'].'</td>';
-                                                    echo '<td>'.$r['BarCode'].'</td>';
-                                                    echo "<td><a class='tool' href='/process/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/process/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
-                                                    echo '</tr>';
-
-                                                }
                                             }
                                         
                                             }
@@ -348,105 +319,39 @@
 
         </div>
     </footer>
-    <?php
-		$Id=$_REQUEST['Id'];
-		
-			$sql_read="select * from object where Id='".$Id."'";
-			$kq=mysqli_query($db,$sql_read);
-			if(mysqli_num_rows($kq)>0)
-			{
-				while($r=mysqli_fetch_array($kq))
-				{
-
-					$DisplayName=$r['DisplayName'];
-					$IdUnit=$r['IdUnit'];			
-					$IdSuplier=$r['IdSuplier'];
-					$QRCode=$r['QRCode'];
-					$BarCode=$r['BarCode'];
-				}
-			}
-	?>
-    <div id="1" class="modal2">
+    <div id="1" class="modal">
         <div  class="modal_overlay" onclick="returnMain()">
     
         </div>
-        <div class="modal_body2">
-            <div id="add" class="modal_innerAdd2">
+        <div class="modal_body">
+            <div id="add" class="modal_innerAdd">
                 <div class="logForm_container">
-                    <form id="form1" action="./process/Product/updatePro.php" method=POST>
+                    <form id="form1" action="./process/Note/addNote.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
-                                <h3 class="logForm_Heading">Sửa sản phẩm</h3>
-                                <a href="/genPro.php" class="btn btn-home">Quay Lại</a>
+                                <h3 class="logForm_Heading">Nhập phiếu</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input readonly="readonly" id="Id" name="Id" value="<?php echo $Id; ?>" type="text" class="logForm_input" placeholder="Id">
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Mã Phiếu">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="DisplayName" name="DisplayName" value="<?php echo $DisplayName; ?>" type="text" class="logForm_input" placeholder="Tên sản phẩm">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <select name="IdUnit" id="IdUnit" class="logForm_input">
-                                        <option value="">----- Đơn Vị ------</option>
-                                        <option value="1" <?php if($IdUnit=='1'){echo 'selected="selected"';}?>>Cái</option>
-                                        <option value="2" <?php if($IdUnit=='2'){echo 'selected="selected"';}?>>Quả</option>
-                                        <option value="3" <?php if($IdUnit=='3'){echo 'selected="selected"';}?>>Chiếc</option>
-                                        <option value="4" <?php if($IdUnit=='4'){echo 'selected="selected"';}?>>Bộ</option>
-                                        <option value="5" <?php if($IdUnit=='5'){echo 'selected="selected"';}?>>Quyển</option>
-                                        <option value="6" <?php if($IdUnit=='6'){echo 'selected="selected"';}?>>Thùng</option>
-                                    </select>
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                <select name="IdSuplier" id="IdSuplier" class="logForm_input">
-                                        <option value="">-----Nhà Cung Cấp----</option>
-                                            <?php 
-                                                $query = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";
-            
-                                                $va = mysqli_query($db, $query);
-                                                if(mysqli_num_rows($va)>0){
-                                                    while($row=mysqli_fetch_array($va)){
-                                                        $name = $row['Name'];
-                                                        $id = $row['Id'];
-                                                        $slt = '';
-                                                        if($IdSuplier==$id){
-                                                            $slt ='selected="selected"';
-                                                        } else {
-                                                            $slt = '';
-                                                        }
-
-                                                        echo "<option ".$slt." value='".$id."'>".$name."</option>";
-                                                    }
-                                                }                                                                                            
-                                            ?>
-                                        </select>
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <span class="logForm_title">Ảnh</span>
-                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files" >
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <span class="logForm_title">QR Code</span>
-                                    <input id="BarCode" name="BarCode" type="file" class="logForm_input">
+                                    <input id="DateInput" name="DateInput" type="datetime-local" class="logForm_input" placeholder="Ngày Nhập">
                                     <span class="formMessage"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="logForm_control">
-                            <input type="submit" value="Hoàn Tất" class="btn btn-main"></input>
-                            
+                            <input type="submit" value="Thêm" class="btn btn-main"></input>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="./interface/js/index.js"></script>
+    
 </body>
 
 </html>

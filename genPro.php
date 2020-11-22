@@ -23,8 +23,8 @@
                             <div class="qrcode">
                                 <img src="./interface/img/qrcode.png" alt="qrcode" class="header__qrcode-img">
                                 <div class="header__qrapp">
-                                    <img src="./assets/img/App_Store_Logo.png" alt="" class="header__qrcode-appstore">
-                                    <img src="./assets/img/download.png" alt="" class="header__qrcode-ggplay">
+                                    <img src="" alt="" class="header__qrcode-appstore">
+                                    <img src="" alt="" class="header__qrcode-ggplay">
                                 </div>
                             </div>
                         </li>
@@ -150,14 +150,14 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item optionBar-item-active">
+                        <li class="optionBar-item">
                             <a class="optionBar-item-link " href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Nhập Kho</a>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link" href="/genPro.php">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Xuất Kho</a>
+                            <a class="optionBar-item-link" href="#">Khách Hàng</a>
                         </li>
                     </ul>
                 </div>
@@ -181,10 +181,8 @@
                         <div class="grid_column-10">
                             <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="#" class="btn btn-home">Tồn Kho</a>
                                 <a href="#" class="btn btn-home btn-main">Sản Phẩm</a>
                                 <a href="/genSup.php" class="btn btn-home">Nhà Cung Cấp</a>
-                                <a href="#" class="btn btn-home">Khách hàng</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
@@ -249,8 +247,8 @@
                                                     echo '<td>'.$r['DisplayName'].'</td>';
                                                     echo '<td>'.$unit.'</td>';
                                                     echo '<td>'.$ncc.'</td>';
-                                                    echo '<td>'.$r['QRCode'].'</td>';
-                                                    echo '<td>'.$r['BarCode'].'</td>';
+                                                    echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['BarCode']."'></td>";
+                                                    echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
                                                     echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
                                                     
@@ -365,7 +363,7 @@
         <div class="modal_body">
             <div id="add" class="modal_innerAdd">
                 <div class="logForm_container">
-                    <form id="form1" action="./process/Product/addPro.php" method=POST>
+                    <form id="form1" action="./process/Product/addPro.php" method=POST enctype="multipart/form-data">
                         <div class="logForm" >
                             <div class="logForm_Header">
                                 <h3 class="logForm_Heading">Thêm sản phẩm</h3>
@@ -392,7 +390,7 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <select name="IdSuplier" id="IdSuplier" class="logForm_input">
+                                    <select name="IdSuplier" id="IdSuplier" class="logForm_input">
                                         <option value="">-----Nhà Cung Cấp----</option>
                                         <?php 
                                         $query = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";
@@ -417,7 +415,7 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">QR Code</span>
-                                    <input id="BarCode" name="BarCode" type="file" class="logForm_input">
+                                    <input id="BarCode" name="BarCode" type="file" class="logForm_input files">
                                     <span class="formMessage"></span>
                                 </div>
                             </div>

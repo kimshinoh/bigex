@@ -23,8 +23,8 @@
                             <div class="qrcode">
                                 <img src="./interface/img/qrcode.png" alt="qrcode" class="header__qrcode-img">
                                 <div class="header__qrapp">
-                                    <img src="./assets/img/App_Store_Logo.png" alt="" class="header__qrcode-appstore">
-                                    <img src="./assets/img/download.png" alt="" class="header__qrcode-ggplay">
+                                    <img src="" alt="" class="header__qrcode-appstore">
+                                    <img src="" alt="" class="header__qrcode-ggplay">
                                 </div>
                             </div>
                         </li>
@@ -147,15 +147,15 @@
         <div class="container">
             <div class="optionBar">
                 <div class="grid">
-                    <ul class="optionBar-list">
-                        <li class="optionBar-item optionBar-item-active">
+                <ul class="optionBar-list">
+                        <li class="optionBar-item">
                             <a class="optionBar-item-link " href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Nhập Kho</a>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link" href="/genPro.php">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Xuất Kho</a>
+                            <a class="optionBar-item-link" href="#">Khách Hàng</a>
                         </li>
                     </ul>
                 </div>

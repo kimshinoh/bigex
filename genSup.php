@@ -23,8 +23,8 @@
                             <div class="qrcode">
                                 <img src="./interface/img/qrcode.png" alt="qrcode" class="header__qrcode-img">
                                 <div class="header__qrapp">
-                                    <img src="./assets/img/App_Store_Logo.png" alt="" class="header__qrcode-appstore">
-                                    <img src="./assets/img/download.png" alt="" class="header__qrcode-ggplay">
+                                    <img src="" alt="" class="header__qrcode-appstore">
+                                    <img src="" alt="" class="header__qrcode-ggplay">
                                 </div>
                             </div>
                         </li>
@@ -150,14 +150,14 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item optionBar-item-active">
+                        <li class="optionBar-item ">
                             <a class="optionBar-item-link " href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Nhập Kho</a>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link" href="#">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Xuất Kho</a>
+                            <a class="optionBar-item-link" href="#">Khách Hàng</a>
                         </li>
                     </ul>
                 </div>
@@ -181,10 +181,8 @@
                         <div class="grid_column-10">
                             <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="#" class="btn btn-home">Tồn Kho</a>
                                 <a href="/genPro.php" class="btn btn-home">Sản Phẩm</a>
                                 <a href="#" class="btn btn-home btn-main">Nhà Cung Cấp</a>
-                                <a href="#" class="btn btn-home">Khách hàng</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
