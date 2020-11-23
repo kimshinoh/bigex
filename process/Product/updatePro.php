@@ -10,10 +10,21 @@
 			$id=$_POST['Id'];
 			$displayname=$_POST['DisplayName'];
 			$idunit=$_POST['IdUnit'];			
-			$idsuplier=$_POST['IdSuplier'];
 			$target_dir="../../storeImg/";
-			$qrcode="";
-			$target_fileQR = $target_dir.basename($_FILES["QRCode"]["name"]);
+			$Image="";
+			$target_fileImage = $target_dir.basename($_FILES["Image"]["name"]);
+			if($_FILES["Image"]["error"]!=0)
+			{
+				echo "Error:".$_FILES["Image"]["error"]."<br />";
+				exit();
+			}
+			else
+			{
+				move_uploaded_file($_FILES["Image"]["tmp_name"], $target_fileImage);
+				$Image=$_FILES["Image"]["name"];
+			}
+			$QRCode="";
+			$target_fileQRCode = $target_dir.basename($_FILES["QRCode"]["name"]);
 			if($_FILES["QRCode"]["error"]!=0)
 			{
 				echo "Error:".$_FILES["QRCode"]["error"]."<br />";
@@ -21,25 +32,12 @@
 			}
 			else
 			{
-				move_uploaded_file($_FILES["QRCode"]["tmp_name"], $target_fileQR);
-				$qrcode=$_FILES["QRCode"]["name"];
-			}
-			$barcode="";
-			$target_fileBar = $target_dir.basename($_FILES["BarCode"]["name"]);
-			if($_FILES["BarCode"]["error"]!=0)
-			{
-				echo "Error:".$_FILES["BarCode"]["error"]."<br />";
-				exit();
-			}
-			else
-			{
-				move_uploaded_file($_FILES["BarCode"]["tmp_name"], $target_fileBar);
-				$barcode=$_FILES["BarCode"]["name"];
+				move_uploaded_file($_FILES["QRCode"]["tmp_name"], $target_fileQRCode);
+				$QRCode=$_FILES["QRCode"]["name"];
 			}
 
-			$sql_query="update object set DisplayName='".$displayname."',IdUnit='".$idunit."',IdSuplier='".$idsuplier."',QRCode='".$qrcode."',BarCode='".$barcode."'where Id='".$id."'";
+			$sql_query="update object set DisplayName='".$displayname."',IdUnit='".$idunit.",Image='".$Image."',QRCode='".$QRCode."'where Id='".$id."'";
 			mysqli_query($db,$sql_query);		
 			header('location:../../genPro.php');
-        }				
-		
+		}
 	?>

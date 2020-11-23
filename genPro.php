@@ -189,12 +189,11 @@
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
-                                            <th style="width: 23%;">Tên Sản Phẩm</th>
-                                            <th style="width: 3%;">Đơn Vị</th>
-                                            <th style="width: 20%;">Nhà Cung Cấp</th>
-                                            <th style="width: 22%;">Hình Ảnh</th>
+                                            <th style="width: 30%;">Tên Sản Phẩm</th>
+                                            <th style="width: 5%;">Đơn Vị</th>
+                                            <th style="width: 33%;">Hình Ảnh</th>
                                             <th style="width: 22%;">QrCode</th>
-                                            <th style="width: 8%;">#</th>
+                                            <th style="width: 7%;">#</th>
                                         </tr>
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
@@ -211,43 +210,18 @@
                                                     while($r=mysqli_fetch_array($value)){
                                                     $i++;
                                                     $unit = '';
-                                                    $idSuplier = $r['IdSuplier'];
                                                     $id = $r['Id'];
                                                     $idUnit = $r['IdUnit'];
-                                                        $query = "select suplier.DisplayName as Name from suplier Where suplier.Id = '".$idSuplier."'";
-    
-                                                        $va = mysqli_query($db, $query);
-                                                        if(mysqli_num_rows($va)>0){
-                                                            while($row=mysqli_fetch_array($va)){
-                                                                $ncc = $row['Name'];
-                                                            }
-                                                        }
                                                     switch($idUnit) {
                                                         case 1: 
                                                             $unit = 'Cái';
-                                                        break;
-                                                        case 2:
-                                                            $unit = 'Quả';
-                                                        break;
-                                                        case 3: 
-                                                            $unit = 'Chiếc';
-                                                        break;
-                                                        case 4:
-                                                            $unit = 'Bộ';
-                                                        break;
-                                                        case 5:
-                                                            $unit = 'Quyển';
-                                                        break;
-                                                        case 6: 
-                                                            $unit = 'Thùng';
                                                         break;
                                                     }
                                                     echo '<tr class="tableProItem">';
                                                     echo '<td>'.$id.'</td>';
                                                     echo '<td>'.$r['DisplayName'].'</td>';
                                                     echo '<td>'.$unit.'</td>';
-                                                    echo '<td>'.$ncc.'</td>';
-                                                    echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['BarCode']."'></td>";
+                                                    echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['Image']."'></td>";
                                                     echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
                                                     echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
@@ -380,42 +354,29 @@
                                 <div class="form-group">
                                     <select name="IdUnit" id="IdUnit" class="logForm_input">
                                         <option value="">----- Đơn Vị ------</option>
-                                        <option value="1">Cái</option>
-                                        <option value="2">Quả</option>
-                                        <option value="3">Chiếc</option>
-                                        <option value="4">Bộ</option>
-                                        <option value="5">Quyển</option>
-                                        <option value="6">Thùng</option>
-                                    </select>
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <select name="IdSuplier" id="IdSuplier" class="logForm_input">
-                                        <option value="">-----Nhà Cung Cấp----</option>
                                         <?php 
-                                        $query = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";
-    
+                                        $query = "select DisplayName,Id from unit";
                                         $va = mysqli_query($db, $query);
                                         if(mysqli_num_rows($va)>0){
                                             while($row=mysqli_fetch_array($va)){
-                                                $name = $row['Name'];
+                                                $name = $row['DisplayName'];
                                                 $id = $row['Id'];
                                                 echo "<option value='".$id."'>".$name."</option>";
                                             }
                                         }
                                         
-                                        
                                         ?>
                                     </select>
+                                    <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">Ảnh</span>
-                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files" >
+                                    <input id="Image" name="Image" type="file" class="logForm_input files" >
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">QR Code</span>
-                                    <input id="BarCode" name="BarCode" type="file" class="logForm_input files">
+                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files">
                                     <span class="formMessage"></span>
                                 </div>
                             </div>

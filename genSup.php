@@ -189,12 +189,13 @@
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
-                                            <th style="width: 17%;">Tên Nhà Cung Cấp</th>
-                                            <th style="width: 20%;">Địa Chỉ</th>
-                                            <th style="width: 10%;">Số điện thoại</th>
-                                            <th style="width: 15%;">Email</th>
-                                            <th style="width: 12%;">Note</th>
-                                            <th style="width: 15%;">Ngày Hợp Đồng</th>
+                                            <th style="width: 12.84%;">Tên Nhà Cung Cấp</th>
+                                            <th style="width: 12.84%;">Cung Cấp</th>
+                                            <th style="width: 12.84%;">Địa Chỉ</th>
+                                            <th style="width: 12.84%;">Số điện thoại</th>
+                                            <th style="width: 12.84%;">Email</th>
+                                            <th style="width: 12.84%;">Note</th>
+                                            <th style="width: 12.84%;">Ngày Hợp Đồng</th>
                                             <th style="width: 7%;">#</th>
                                         </tr>
                                         <?php
@@ -209,12 +210,23 @@
                                                 if(mysqli_num_rows($value)>0){
                                                     
                                                     $i=0;
+                                                    
                                                     while($r=mysqli_fetch_array($value)){
+                                                        $idObject = $r['IdObject'];
+                                                        $selected = "select DisplayName from object where Id ='".$idObject."'";
+
+                                                        $val = mysqli_query($db, $selected);
+                                                        if(mysqli_num_rows($val)>0){
+                                                            while($ro=mysqli_fetch_array($val)){
+                                                                $product = $ro['DisplayName'];
+                                                            }
+                                                        }
                                                     $i++;
                                                     $id = $r['Id'];
                                                     echo '<tr class="tableProItem">';
                                                     echo '<td>'.$id.'</td>';
                                                     echo '<td>'.$r['DisplayName'].'</td>';
+                                                    echo '<td>'.$product.'</td>';
                                                     echo '<td>'.$r['Address'].'</td>';
                                                     echo '<td>'.$r['Phone'].'</td>';
                                                     echo '<td>'.$r['Email'].'</td>';
@@ -346,6 +358,24 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên">
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select name="IdObject" id="IdObject" class="logForm_input">
+                                        <option value="">----- Cung cấp ------</option>
+                                        <?php 
+                                        $query = "select DisplayName,Id from object";
+                                        $va = mysqli_query($db, $query);
+                                        if(mysqli_num_rows($va)>0){
+                                            while($row=mysqli_fetch_array($va)){
+                                                $name = $row['DisplayName'];
+                                                $id = $row['Id'];
+                                                echo "<option value='".$id."'>".$name."</option>";
+                                            }
+                                        }
+                                        
+                                        ?>
+                                    </select>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">

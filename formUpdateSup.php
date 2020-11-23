@@ -177,12 +177,10 @@
                             </nav>
                         </div>
                         <div class="grid_column-10">
-                            <div class="home__filter">
+                        <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="#" class="btn btn-home">Tồn Kho</a>
-                                <a href="#" class="btn btn-home">Sản Phẩm</a>
+                                <a href="/genPro.php" class="btn btn-home">Sản Phẩm</a>
                                 <a href="#" class="btn btn-home btn-main">Nhà Cung Cấp</a>
-                                <a href="#" class="btn btn-home">Khách hàng</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
@@ -328,22 +326,29 @@
         </div>
     </footer>
     <?php
-	//đọc dữ liệu
             $Id=$_REQUEST['Id'];
 			$sql_read="select * from suplier where Id=".$Id."";
 			$kq=mysqli_query($db,$sql_read);
 			if(mysqli_num_rows($kq)>0)
 			{
-				while($r=mysqli_fetch_array($kq))
+				while($row=mysqli_fetch_array($kq))
 				{
-                    $Displayname=$r['DisplayName'];
-                    $Address=$r['Address'];			
-                    $Phone=$r['Phone'];
-                    $Email=$r['Email'];
-                    $MoreInfo=$r['MoreInfo'];
-                    $ContractDate=$r['ContractDate'];
+                    $IdObject=$row['IdObject'];
+                    $Displayname=$row['DisplayName'];
+                    $Address=$row['Address'];			
+                    $Phone=$row['Phone'];
+                    $Email=$row['Email'];
+                    $MoreInfo=$row['MoreInfo'];
+                    $ContractDate=$row['ContractDate'];
 				}
-			}
+            }
+            $query1 = "select suplier.IdObject as Id from object inner join suplier on suplier.IdObject = object.Id where suplier.Id ='".$Id."'";
+            $val = mysqli_query($db, $query1);
+            if(mysqli_num_rows($val)>0){
+                while($ro=mysqli_fetch_array($val)){
+                    $IdSelected = $ro['Id'];
+                }
+            }
 	?>
     <div id="1" class="modal2">
         <div  class="modal_overlay" onclick="returnMain()">
@@ -365,6 +370,30 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="DisplayName" name="DisplayName" value="<?php echo $Displayname; ?>" type="text" class="logForm_input" placeholder="Tên">
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select name="IdObject" id="IdObject" class="logForm_input">
+                                        <option value="">----- Cung cấp ------</option>
+                                        <?php 
+                                        $query = "select DisplayName,Id from object";
+                                    
+                                        $va = mysqli_query($db, $query);
+                                        if(mysqli_num_rows($va)>0){
+                                            while($row=mysqli_fetch_array($va)){
+                                                $checkUnit = '';
+                                                
+                                            $name = $row['DisplayName'];
+                                            $id = $row['Id'];
+                                            if($id === $IdSelected){
+                                                $checkUnit='selected';
+                                            }
+                                            echo "<option ".$checkUnit." value='".$id."'>".$name."</option>";
+                                            }
+                                        }
+                                    
+                                        ?>
+                                    </select>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">

@@ -179,12 +179,10 @@
                             </nav>
                         </div>
                         <div class="grid_column-10">
-                            <div class="home__filter">
+                        <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="#"  class="btn btn-home">Tồn Kho</a>
                                 <a href="#" class="btn btn-home btn-main">Sản Phẩm</a>
-                                <a href="#" class="btn btn-home">Nhà Cung Cấp</a>
-                                <a href="#" class="btn btn-home">Khách hàng</a>
+                                <a href="/genSup.php" class="btn btn-home">Nhà Cung Cấp</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
@@ -205,11 +203,12 @@
 
                                             } else {
                                                 $select_table = 'select * from object order by Id+0 asc';
+
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
                                                     
                                                     $i=0;
-                                                while($r=mysqli_fetch_array($value)){
+                                                    while($r=mysqli_fetch_array($value)){
                                                     $i++;
                                                     $unit = '';
                                                     $id = $r['Id'];
@@ -218,32 +217,16 @@
                                                         case 1: 
                                                             $unit = 'Cái';
                                                         break;
-                                                        case 2:
-                                                            $unit = 'Quả';
-                                                        break;
-                                                        case 3: 
-                                                            $unit = 'Chiếc';
-                                                        break;
-                                                        case 4:
-                                                            $unit = 'Bộ';
-                                                        break;
-                                                        case 5:
-                                                            $unit = 'Quyển';
-                                                        break;
-                                                        case 6: 
-                                                            $unit = 'Thùng';
-                                                        break;
                                                     }
                                                     echo '<tr class="tableProItem">';
-                                                    echo '<td>'.$r['Id'].'</td>';
+                                                    echo '<td>'.$id.'</td>';
                                                     echo '<td>'.$r['DisplayName'].'</td>';
                                                     echo '<td>'.$unit.'</td>';
-                                                    echo '<td>'.$r['IdSuplier'].'</td>';
-                                                    echo '<td>'.$r['QRCode'].'</td>';
-                                                    echo '<td>'.$r['BarCode'].'</td>';
-                                                    echo "<td><a class='tool' href='/process/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/process/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
+                                                    echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['Image']."'></td>";
+                                                    echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
+                                                    echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
-
+                                                    
                                                 }
                                             }
                                         
@@ -357,12 +340,8 @@
 			{
 				while($r=mysqli_fetch_array($kq))
 				{
-
 					$DisplayName=$r['DisplayName'];
 					$IdUnit=$r['IdUnit'];			
-					$IdSuplier=$r['IdSuplier'];
-					$QRCode=$r['QRCode'];
-					$BarCode=$r['BarCode'];
 				}
 			}
 	?>
@@ -391,48 +370,40 @@
                                 <div class="form-group">
                                     <select name="IdUnit" id="IdUnit" class="logForm_input">
                                         <option value="">----- Đơn Vị ------</option>
-                                        <option value="1" <?php if($IdUnit=='1'){echo 'selected="selected"';}?>>Cái</option>
-                                        <option value="2" <?php if($IdUnit=='2'){echo 'selected="selected"';}?>>Quả</option>
-                                        <option value="3" <?php if($IdUnit=='3'){echo 'selected="selected"';}?>>Chiếc</option>
-                                        <option value="4" <?php if($IdUnit=='4'){echo 'selected="selected"';}?>>Bộ</option>
-                                        <option value="5" <?php if($IdUnit=='5'){echo 'selected="selected"';}?>>Quyển</option>
-                                        <option value="6" <?php if($IdUnit=='6'){echo 'selected="selected"';}?>>Thùng</option>
+                                        <?php 
+                                        $query = "select DisplayName,Id from unit";
+                                        $checkUnit = '';
+                                        $va = mysqli_query($db, $query);
+                                        if(mysqli_num_rows($va)>0){
+                                            while($row=mysqli_fetch_array($va)){
+                                                $query1 = "select object.IdUnit as Id from unit inner join object on unit.Id = object.IdUnit where object.Id ='".$Id."'";
+                                                $val = mysqli_query($db, $query1);
+                                                if(mysqli_num_rows($val)>0){
+                                                    while($ro=mysqli_fetch_array($va)){
+                                                        $IdSelected = $ro['Id'];
+                                                    }
+                                            $id = $row['Id'];
+                                            if($id == $IdSelected){
+                                                $checkUnit='selected';
+                                            } else $checkUnit = '';
+
+                                            $name = $row['DisplayName'];
+                                            echo "<option ".$checkUnit." value='".$id."'>".$name."</option>";
+                                            }
+                                        }
+                                    }
+                                        ?>
                                     </select>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <select name="IdSuplier" id="IdSuplier" class="logForm_input">
-                                        <option value="">-----Nhà Cung Cấp----</option>
-                                            <?php 
-                                                $query = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";
-            
-                                                $va = mysqli_query($db, $query);
-                                                if(mysqli_num_rows($va)>0){
-                                                    while($row=mysqli_fetch_array($va)){
-                                                        $name = $row['Name'];
-                                                        $id = $row['Id'];
-                                                        $slt = '';
-                                                        if($IdSuplier==$id){
-                                                            $slt ='selected="selected"';
-                                                        } else {
-                                                            $slt = '';
-                                                        }
-
-                                                        echo "<option ".$slt." value='".$id."'>".$name."</option>";
-                                                    }
-                                                }                                                                                            
-                                            ?>
-                                        </select>
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
                                     <span class="logForm_title">Ảnh</span>
-                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files" >
+                                    <input id="Image" name="Image" type="file" class="logForm_input files" >
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">QR Code</span>
-                                    <input id="BarCode" name="BarCode" type="file" class="logForm_input">
+                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files">
                                     <span class="formMessage"></span>
                                 </div>
                             </div>
