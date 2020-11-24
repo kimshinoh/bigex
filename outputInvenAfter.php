@@ -204,6 +204,7 @@
                                         </tr>
                                         <?php
                                             $IdNote = $_REQUEST['IdNote'];
+                                            $IdObjectPost = $_POST['IdObject'];
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
                                             if(!$db){
                                                 echo 'Lỗi';
@@ -340,47 +341,66 @@
 
         </div>
     </footer>
-    <div id="1" class="modal">
+    <div id="1" class="modal2">
         <div  class="modal_overlay" onclick="returnMain()">
     
         </div>
-        <div class="modal_body">
-            <div id="add" class="modal_innerAdd">
+        <div class="modal_body2">
+            <div id="add1" class="modal_innerAdd2">
                 <div class="logForm_container">
-                    <form id="form1" action="/outputInvenAfter.php" method=POST>
+                    <form id="form1" action="./process/Inventory/addOutput.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
                                 <h3 class="logForm_Heading">Xuất kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <span class="logForm_title">Chọn Sản phẩm xuất</span>
-                                    <select name="IdObject" id="IdObject" class="logForm_input">
-                                        <?php
-                                        $query1 = "select IdObject from inventoryGeneral";
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input id="IdObject" name="IdObject" value="<?php echo $IdObjectPost; ?>" type="hidden" class="logForm_input">
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <select name="IdCustomer" id="IdCustomer" class="logForm_input">
+                                        <option value="">-----Chọn khách hàng----</option>
+                                        <?php 
+                                        $query2 = "select Customer.Id, Customer.DisplayName from Customer";
     
-                                        $val = mysqli_query($db, $query1);
+                                        $val = mysqli_query($db, $query2);
                                         if(mysqli_num_rows($val)>0){
                                             while($row=mysqli_fetch_array($val)){
-                                                $IdObjectGeneral = $row['IdObject'];
-                                                $query2 = "select object.DisplayName as Name,object.Id as Id from object where Id='".$IdObjectGeneral."'";
-                                                $va = mysqli_query($db, $query2);
-                                                if(mysqli_num_rows($va)>0){
-                                                    while($row=mysqli_fetch_array($va)){
-                                                        $name = $row['Name'];
-                                                        $id = $row['Id'];
-                                                        echo "<option value='".$id."'>".$name."</option>";
-                                                    }
-                                                }
+                                                $name = $row['DisplayName'];
+                                                $id = $row['Id'];
+                                                echo "<option value='".$id."'>".$name."</option>";
                                             }
                                         }
                                         ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input id="IdNote" name="IdNote" type="hidden" value="<?php echo $IdNote; ?> " class="logForm_input" placeholder="Số lượng">
+                                <?php 
+                                        $query3 = "select total from inventoryGeneral where IdObject = '".$IdObjectPost."' ";
+                                        $valu = mysqli_query($db, $query3);
+                                        if(mysqli_num_rows($valu)>0){
+                                            while($row=mysqli_fetch_array($valu)){
+                                                $MaxCount = $row['total'];
+                                            }
+                                        }
+                                        ?>
+                                    <input id="Count" name="Count" type="number" min='0' max=<?php echo $MaxCount; ?> class="logForm_input" placeholder="Số lượng xuất">
                                     <span class="formMessage"></span>
                                 </div>
+                                <div class="form-group">
+                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Trạng Thái">
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input id="IdOutput" readonly='readonly' value="<?php echo $IdNote; ?>" name="IdOutput" type="hidden" class="logForm_input" placeholder="Mã nhập">
+                                    <span class="formMessage"></span>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="logForm_control">
