@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./interface/css/bass.css">
     <link rel="stylesheet" href="./interface/css/index.css">
     <link rel="stylesheet" href="./interface/css/normalize.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/icon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
     <title>Xuất Kho</title>
 </head>
@@ -210,7 +210,7 @@
                                                 echo 'Lỗi';
 
                                             } else {
-                                                $select_table = "select * from outputinfo where output_Id='".$IdNote."'";
+                                                $select_table = "select * from outputinfo where IdOutput='".$IdNote."'";
 
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
@@ -352,7 +352,7 @@
                     <form id="form1" action="./process/Inventory/addOutput.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
-                                <h3 class="logForm_Heading">Xuất kho</h3>
+                                <h3 class="logForm_Heading">Xuất kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
@@ -362,15 +362,22 @@
                                 <div class="form-group">
                                     <select name="IdObject" id="IdObject" class="logForm_input">
                                         <option value="">-----Chọn sản phẩm----</option>
-                                        <?php 
-                                        $query = "select object.DisplayName as Name,object.Id as Id from object";
+                                        <?php
+                                        $query1 = "select IdObject from inventoryGeneral";
     
-                                        $va = mysqli_query($db, $query);
-                                        if(mysqli_num_rows($va)>0){
-                                            while($row=mysqli_fetch_array($va)){
-                                                $name = $row['Name'];
-                                                $id = $row['Id'];
-                                                echo "<option value='".$id."'>".$name."</option>";
+                                        $val = mysqli_query($db, $query1);
+                                        if(mysqli_num_rows($val)>0){
+                                            while($row=mysqli_fetch_array($val)){
+                                                $IdObjectGeneral = $row['IdObject'];
+                                                $query2 = "select object.DisplayName as Name,object.Id as Id from object where Id='".$IdObjectGeneral."'";
+                                                $va = mysqli_query($db, $query2);
+                                                if(mysqli_num_rows($va)>0){
+                                                    while($row=mysqli_fetch_array($va)){
+                                                        $name = $row['Name'];
+                                                        $id = $row['Id'];
+                                                        echo "<option value='".$id."'>".$name."</option>";
+                                                    }
+                                                }
                                             }
                                         }
                                         ?>

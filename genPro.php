@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./interface/css/bass.css">
     <link rel="stylesheet" href="./interface/css/index.css">
     <link rel="stylesheet" href="./interface/css/normalize.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/icon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
     <title>Sản Phẩm</title>
 </head>
@@ -209,18 +209,11 @@
                                                     $i=0;
                                                     while($r=mysqli_fetch_array($value)){
                                                     $i++;
-                                                    $unit = '';
                                                     $id = $r['Id'];
-                                                    $idUnit = $r['IdUnit'];
-                                                    switch($idUnit) {
-                                                        case 1: 
-                                                            $unit = 'Cái';
-                                                        break;
-                                                    }
                                                     echo '<tr class="tableProItem">';
                                                     echo '<td>'.$id.'</td>';
                                                     echo '<td>'.$r['DisplayName'].'</td>';
-                                                    echo '<td>'.$unit.'</td>';
+                                                    echo '<td>'.$r['Unit'].'</td>';
                                                     echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['Image']."'></td>";
                                                     echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
                                                     echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
@@ -352,20 +345,14 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select name="IdUnit" id="IdUnit" class="logForm_input">
+                                    <select name="Unit" id="Unit" class="logForm_input">
                                         <option value="">----- Đơn Vị ------</option>
-                                        <?php 
-                                        $query = "select DisplayName,Id from unit";
-                                        $va = mysqli_query($db, $query);
-                                        if(mysqli_num_rows($va)>0){
-                                            while($row=mysqli_fetch_array($va)){
-                                                $name = $row['DisplayName'];
-                                                $id = $row['Id'];
-                                                echo "<option value='".$id."'>".$name."</option>";
-                                            }
-                                        }
-                                        
-                                        ?>
+                                        <option value="Cái">Cái</option>
+                                        <option value="Chiếc">Chiếc</option>
+                                        <option value="Thùng">Thùng</option>
+                                        <option value="Quyển">Quyển</option>
+                                        <option value="Bộ">Bộ</option>
+
                                     </select>
                                     <span class="formMessage"></span>
                                 </div>

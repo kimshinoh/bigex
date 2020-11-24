@@ -9,7 +9,7 @@
 		{
 			$id=$_POST['Id'];
 			$displayname=$_POST['DisplayName'];
-			$idunit=$_POST['IdUnit'];			
+			$Unit=$_POST['Unit'];			
 			$target_dir="../../storeImg/";
 			$Image="";
 			$target_fileImage = $target_dir.basename($_FILES["Image"]["name"]);
@@ -36,7 +36,7 @@
 				$QRCode=$_FILES["QRCode"]["name"];
 			}
 
-			$sql_query="update object set DisplayName='".$displayname."',IdUnit='".$idunit.",Image='".$Image."',QRCode='".$QRCode."'where Id='".$id."'";
+			$sql_query="update object set DisplayName='".$displayname."',Unit='".$Unit."',Image='".$Image."',QRCode='".$QRCode."'where Id='".$id."'";
 			mysqli_query($db,$sql_query);		
 			header('location:../../genPro.php');
 		}

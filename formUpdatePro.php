@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./interface/css/bass.css">
     <link rel="stylesheet" href="./interface/css/index.css">
     <link rel="stylesheet" href="./interface/css/normalize.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/icon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
     <title>Nhà Cung Cấp</title>
 </head>
@@ -191,7 +191,6 @@
                                             <th style="width: 3%;">ID</th>
                                             <th style="width: 23%;">Tên Sản Phẩm</th>
                                             <th style="width: 3%;">Đơn Vị</th>
-                                            <th style="width: 20%;">Nhà Cung Cấp</th>
                                             <th style="width: 22%;">Hình Ảnh</th>
                                             <th style="width: 22%;">QrCode</th>
                                             <th style="width: 8%;">#</th>
@@ -210,18 +209,11 @@
                                                     $i=0;
                                                     while($r=mysqli_fetch_array($value)){
                                                     $i++;
-                                                    $unit = '';
-                                                    $id = $r['Id'];
-                                                    $idUnit = $r['IdUnit'];
-                                                    switch($idUnit) {
-                                                        case 1: 
-                                                            $unit = 'Cái';
-                                                        break;
-                                                    }
+                                                    $id = $r['Id'];                          
                                                     echo '<tr class="tableProItem">';
                                                     echo '<td>'.$id.'</td>';
                                                     echo '<td>'.$r['DisplayName'].'</td>';
-                                                    echo '<td>'.$unit.'</td>';
+                                                    echo '<td>'.$r['Unit'].'</td>';
                                                     echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['Image']."'></td>";
                                                     echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
                                                     echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
@@ -341,7 +333,7 @@
 				while($r=mysqli_fetch_array($kq))
 				{
 					$DisplayName=$r['DisplayName'];
-					$IdUnit=$r['IdUnit'];			
+					$Unit=$r['Unit'];			
 				}
 			}
 	?>
@@ -352,7 +344,7 @@
         <div class="modal_body2">
             <div id="add" class="modal_innerAdd2">
                 <div class="logForm_container">
-                    <form id="form1" action="./process/Product/updatePro.php" method=POST>
+                    <form id="form1" action="./process/Product/updatePro.php" enctype="multipart/form-data" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
                                 <h3 class="logForm_Heading">Sửa sản phẩm</h3>
@@ -368,31 +360,14 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select name="IdUnit" id="IdUnit" class="logForm_input">
+                                <select name="Unit" id="Unit" class="logForm_input">
                                         <option value="">----- Đơn Vị ------</option>
-                                        <?php 
-                                        $query = "select DisplayName,Id from unit";
-                                        $checkUnit = '';
-                                        $va = mysqli_query($db, $query);
-                                        if(mysqli_num_rows($va)>0){
-                                            while($row=mysqli_fetch_array($va)){
-                                                $query1 = "select object.IdUnit as Id from unit inner join object on unit.Id = object.IdUnit where object.Id ='".$Id."'";
-                                                $val = mysqli_query($db, $query1);
-                                                if(mysqli_num_rows($val)>0){
-                                                    while($ro=mysqli_fetch_array($va)){
-                                                        $IdSelected = $ro['Id'];
-                                                    }
-                                            $id = $row['Id'];
-                                            if($id == $IdSelected){
-                                                $checkUnit='selected';
-                                            } else $checkUnit = '';
+                                        <option value="Cái" <?php if($Unit == 'Cái') echo 'selected'; ?>>Cái</option>
+                                        <option value="Chiếc" <?php if($Unit == 'Chiếc') echo 'selected'; ?>>Chiếc</option>
+                                        <option value="Thùng" <?php if($Unit == 'Thùng') echo 'selected'; ?>>Thùng</option>
+                                        <option value="Quyển" <?php if($Unit == 'Quyển') echo 'selected'; ?>>Quyển</option>
+                                        <option value="Bộ" <?php if($Unit == 'Bộ') echo 'selected'; ?>>Bộ</option>
 
-                                            $name = $row['DisplayName'];
-                                            echo "<option ".$checkUnit." value='".$id."'>".$name."</option>";
-                                            }
-                                        }
-                                    }
-                                        ?>
                                     </select>
                                     <span class="formMessage"></span>
                                 </div>
@@ -419,5 +394,4 @@
     </div>
 
 </body>
-
 </html>

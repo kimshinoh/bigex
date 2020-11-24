@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./interface/css/bass.css">
     <link rel="stylesheet" href="./interface/css/index.css">
     <link rel="stylesheet" href="./interface/css/normalize.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/icon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
     <title>Nhập kho</title>
 </head>
@@ -197,10 +197,10 @@
                                             <th style="width: 3%;">ID</th>
                                             <th style="width: 20%;">Sản Phẩm</th>
                                             <th style="width: 10%;">Số lượng</th>
+                                            <th style="width: 20%;">NCC</th>
                                             <th style="width: 15%;">Giá Nhập</th>
                                             <th style="width: 15%;">Giá Bán</th>
-                                            <th style="width: 20%;">Trạng Thái</th>
-                                            <th style="width: 10%;">Mã Phiếu</th>
+                                            <th style="width: 10%;">Trạng Thái</th>
                                             <th style="width: 7%;">#</th>
                                         </tr>
                                         <?php
@@ -218,11 +218,19 @@
                                                     $i=0;
                                                     while($r=mysqli_fetch_array($value)){
                                                         $IdObject = $r['IdObject'];
-                                                        $query = "select object.DisplayName as Name from object Where object.Id = '".$IdObject."'";
-                                                        $va = mysqli_query($db, $query);
+                                                        $IdSuplier = $r['IdSuplier'];
+                                                        $query1 = "select object.DisplayName as Name from object Where object.Id = '".$IdObject."'";
+                                                        $va = mysqli_query($db, $query1);
                                                         if(mysqli_num_rows($va)>0){
                                                             while($row=mysqli_fetch_array($va)){
                                                                 $Product = $row['Name'];
+                                                            }
+                                                        }
+                                                        $query2 = "select suplier.DisplayName as Name from suplier Where suplier.Id = '".$IdSuplier."'";
+                                                        $val = mysqli_query($db, $query2);
+                                                        if(mysqli_num_rows($val)>0){
+                                                            while($row1=mysqli_fetch_array($val)){
+                                                                $Suplier = $row1['Name'];
                                                             }
                                                         }
                                                         $i++;
@@ -231,11 +239,11 @@
                                                         echo '<td>'.$id.'</td>';
                                                         echo '<td>'.$Product.'</td>';
                                                         echo '<td>'.$r['Count'].'</td>';
+                                                        echo '<td>'.$Suplier.'</td>';
                                                         echo '<td>'.$r['InputPrice'].'</td>';
                                                         echo '<td>'.$r['OutputPrice'].'</td>';
                                                         echo '<td>'.$r['Stt'].'</td>';
-                                                        echo '<td>'.$r['IdInput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Inventory/deleteInput.php?Id=$id'><i class='far fa-trash-alt'></i></a>";
+                                                        echo "<td><a class='tool' href='/process/Inventory/deleteInput.php?Id=$id&IdNote=$IdNote'><i class='far fa-trash-alt'></i></a>";
                                                         echo '</tr>';
                                                         
                                                     }
@@ -349,25 +357,21 @@
         <div class="modal_body">
             <div id="add" class="modal_innerAdd">
                 <div class="logForm_container">
-                    <form id="form1" action="./process/Inventory/addInput.php" method=POST>
+                    <form id="form1" action="/inputInvenAfter.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
-                                <h3 class="logForm_Heading">Nhập vào kho</h3>
+                                <h3 class="logForm_Heading">Nhập vào kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <select name="IdObject" id="IdObject" class="logForm_input">
-                                        <option value="">-----Chọn sản phẩm----</option>
+                                    <span class="logForm_title">Chọn Nhà Cung cấp</span>
+                                    <select name="IdSuplier" id="IdSuplier" class="logForm_input">
+
                                         <?php 
-                                        $query = "select object.DisplayName as Name,object.Id as Id from object";
-    
-                                        $va = mysqli_query($db, $query);
-                                        if(mysqli_num_rows($va)>0){
-                                            while($row=mysqli_fetch_array($va)){
+                                        $query2 = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";
+                                        $value1 = mysqli_query($db, $query2);
+                                        if(mysqli_num_rows($value1)>0){
+                                            while($row=mysqli_fetch_array($value1)){
                                                 $name = $row['Name'];
                                                 $id = $row['Id'];
                                                 echo "<option value='".$id."'>".$name."</option>";
@@ -377,30 +381,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Count" name="Count" type="number" class="logForm_input" placeholder="Số lượng">
+                                    <input id="IdNote" name="IdNote" type="hidden" value="<?php echo $IdNote; ?> " class="logForm_input" placeholder="Số lượng">
                                     <span class="formMessage"></span>
                                 </div>
-                                <div class="form-group">
-                                    <input id="InputPrice" name="InputPrice" type="number" class="logForm_input" placeholder="Giá Nhập">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="OutputPrice" name="OutputPrice" type="number" class="logForm_input" placeholder="Giá Xuất">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Trạng Thái">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="IdInput" readonly='readonly' name="IdInput" type="text" value="<?php echo $IdNote; ?>" class="logForm_input" placeholder="Mã nhập">
-                                    <span class="formMessage"></span>
-                                </div>
-                                
                             </div>
                         </div>
                         <div class="logForm_control">
-                            <input type="submit" value="Thêm" class="btn btn-main"></input>
+                            <input type="submit" value="Tiếp" class="btn btn-main"></input>
                         </div>
                     </form>
                 </div>
@@ -408,7 +395,6 @@
         </div>
     </div>
     <script src="./interface/js/index.js"></script>
-    
 </body>
 
 </html>

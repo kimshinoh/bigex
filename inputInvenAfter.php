@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="./interface/css/normalize.css">
     <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
-    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
-    <title>Nhà Cung Cấp</title>
+    <title>Nhập kho</title>
 </head>
 
 <body>
@@ -151,11 +150,11 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item ">
-                            <a class="optionBar-item-link " href="#">Tổng Quan</a>
+                        <li class="optionBar-item  optionBar-item-active">
+                            <a class="optionBar-item-link" href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item optionBar-item-active">
-                            <a class="optionBar-item-link" href="#">Hàng Hóa</a>
+                        <li class="optionBar-item">
+                            <a class="optionBar-item-link" href="/genSup.php">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="#">Khách Hàng</a>
@@ -174,7 +173,12 @@
                                 </h3>
                                     <ul class="catogory-list">
                                         <li class="category-item" onclick="showFormAdd()">
-                                        <i class="fas fa-plus"></i>  Thêm nhà cung cấp
+                                            <i class="fas fa-plus"></i>  Nhập Vào Phiếu
+                                        </li>
+                                        <li class="category-item">
+                                            <a class="category-item" href="/inputNote.php">
+                                                <i class="fas fa-undo-alt"></i> Quay Lại DS Phiếu
+                                            </a>
                                         </li>
                                     </ul>
                             </nav>
@@ -182,61 +186,68 @@
                         <div class="grid_column-10">
                             <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="/genPro.php" class="btn btn-home">Sản Phẩm</a>
-                                <a href="#" class="btn btn-home btn-main">Nhà Cung Cấp</a>
+                                <a href="#" class="btn btn-home">Tồn Kho</a>
+                                <a href="#" class="btn btn-home btn-main">Nhập Kho</a>
+                                <a href="#" class="btn btn-home ">Xuất Kho</a>
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
-                                            <th style="width: 12.84%;">Tên Nhà Cung Cấp</th>
-                                            <th style="width: 12.84%;">Cung Cấp</th>
-                                            <th style="width: 12.84%;">Địa Chỉ</th>
-                                            <th style="width: 12.84%;">Số điện thoại</th>
-                                            <th style="width: 12.84%;">Email</th>
-                                            <th style="width: 12.84%;">Note</th>
-                                            <th style="width: 12.84%;">Ngày Hợp Đồng</th>
+                                            <th style="width: 20%;">Sản Phẩm</th>
+                                            <th style="width: 10%;">Số lượng</th>
+                                            <th style="width: 20%;">NCC</th>
+                                            <th style="width: 15%;">Giá Nhập</th>
+                                            <th style="width: 15%;">Giá Bán</th>
+                                            <th style="width: 10%;">Trạng Thái</th>
                                             <th style="width: 7%;">#</th>
                                         </tr>
                                         <?php
+                                            $IdNote = $_POST['IdNote'];
+                                            $IdSuplierPost = $_POST['IdSuplier'];
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
                                             if(!$db){
                                                 echo 'Lỗi';
 
                                             } else {
-                                                $select_table = 'select * from suplier';
+                                                $select_table = "select * from inputinfo where IdInput='".$IdNote."'";
 
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
                                                     
                                                     $i=0;
-                                                    
                                                     while($r=mysqli_fetch_array($value)){
-                                                        $id = $r['Id'];
-                                                        $selected = "select object.DisplayName from object inner join ob_su on object.Id = ob_su.IdObject where ob_su.IdSuplier ='".$id."'";
-                                                        $val = mysqli_query($db, $selected);
-                                                        
-                                                    $i++;
-                                                    echo '<tr class="tableProItem">';
-                                                    echo '<td>'.$id.'</td>';
-                                                    echo '<td>'.$r['DisplayName'].'</td>';
-                                                    echo '<td>';
-                                                    if(mysqli_num_rows($val)>0){
-                                                        while($ro=mysqli_fetch_array($val)){
-                                                            echo $ro['DisplayName'],',';
+                                                        $IdObject = $r['IdObject'];
+                                                        $IdSuplier = $r['IdSuplier'];
+                                                        $query1 = "select object.DisplayName as Name from object Where object.Id = '".$IdObject."'";
+                                                        $va = mysqli_query($db, $query1);
+                                                        if(mysqli_num_rows($va)>0){
+                                                            while($row=mysqli_fetch_array($va)){
+                                                                $Product = $row['Name'];
+                                                            }
                                                         }
+                                                        $query2 = "select suplier.DisplayName as Name from suplier Where suplier.Id = '".$IdSuplier."'";
+                                                        $val = mysqli_query($db, $query2);
+                                                        if(mysqli_num_rows($val)>0){
+                                                            while($row1=mysqli_fetch_array($val)){
+                                                                $Suplier = $row1['Name'];
+                                                            }
+                                                        }
+                                                        $i++;
+                                                        $id = $r['Id'];
+                                                        echo '<tr class="tableProItem">';
+                                                        echo '<td>'.$id.'</td>';
+                                                        echo '<td>'.$Product.'</td>';
+                                                        echo '<td>'.$r['Count'].'</td>';
+                                                        echo '<td>'.$Suplier.'</td>';
+                                                        echo '<td>'.$r['InputPrice'].'</td>';
+                                                        echo '<td>'.$r['OutputPrice'].'</td>';
+                                                        echo '<td>'.$r['Stt'].'</td>';
+                                                        echo "<td><a class='tool' href='/process/Inventory/deleteInput.php?Id=$id&IdNote=$IdNote'><i class='far fa-trash-alt'></i></a>";
+                                                        echo '</tr>';
+                                                        
                                                     }
-                                                    echo '</td>';
-                                                    echo '<td>'.$r['Address'].'</td>';
-                                                    echo '<td>'.$r['Phone'].'</td>';
-                                                    echo '<td>'.$r['Email'].'</td>';
-                                                    echo '<td>'.$r['MoreInfo'].'</td>';
-                                                    echo '<td>'.$r['ContractDate'].'</td>';
-                                                    echo "<td><a class='tool' href='/process/Suplier/deleteSup.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdateSup.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
-                                                    echo '</tr>';
-                                                    
-                                                }
                                             }
                                         
                                             }
@@ -340,17 +351,17 @@
 
         </div>
     </footer>
-    <div id="1" class="modal">
+    <div id="1" class="modal2">
         <div  class="modal_overlay" onclick="returnMain()">
     
         </div>
-        <div class="modal_body">
-            <div id="add" class="modal_innerAdd">
+        <div class="modal_body2">
+            <div id="add1" class="modal_innerAdd2">
                 <div class="logForm_container">
-                    <form id="form1" action="./process/Suplier/addSup.php" method=POST>
+                    <form id="form1" action="./process/Inventory/addInput.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
-                                <h3 class="logForm_Heading">Thêm nhà cung cấp</h3>
+                                <h3 class="logForm_Heading">Nhập vào kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
@@ -358,46 +369,46 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên">
+                                    <input id="IdSuplier" value="<?php echo $IdSuplierPost; ?>" name="IdSuplier" type="hidden" class="logForm_input">
                                     <span class="formMessage"></span>
                                 </div>
-                                <div id="list1" class="dropdown-check-list" tabindex="100">
-                                    <span id="anchor" class="anchor">Chọn sản phẩm</span>
-                                    <ul class="items">
+                                <div class="form-group">
+                                    
+                                    <select name="IdObject" id="IdObject" class="logForm_input">
+                                        <option value="">-----Chọn sản phẩm----</option>
                                         <?php 
-                                        $query = "select DisplayName,Id from object";
+                                        $query = "select object.DisplayName,object.Id from object inner join ob_su on object.id = ob_su.IdObject where ob_su.IdSuplier = '".$IdSuplierPost."'";
                                         $va = mysqli_query($db, $query);
                                         if(mysqli_num_rows($va)>0){
                                             while($row=mysqli_fetch_array($va)){
                                                 $name = $row['DisplayName'];
                                                 $id = $row['Id'];
-                                                echo "<li><input type='checkbox' name='IdObject[]' value='".$id."'>".$name."</li>";
+                                                echo "<option value='".$id."'>".$name."</option>";
                                             }
                                         }
                                         
                                         ?> 
-                                    </ul>
+                                    </Select>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Địa chỉ">
+                                    <input id="Count" name="Count" type="number" class="logForm_input" placeholder="Số lượng">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="Số điện thoại">
+                                    <input id="InputPrice" name="InputPrice" type="number" class="logForm_input" placeholder="Giá Nhập">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Email" name="Email" type="text" class="logForm_input" placeholder="Email">
+                                    <input id="OutputPrice" name="OutputPrice" type="number" class="logForm_input" placeholder="Giá Xuất">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Thông tin thêm">
+                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Trạng Thái">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="ContractDate" name="ContractDate" type="datetime-local" class="logForm_input">
+                                    <input id="IdInput" name="IdInput" type="hidden" value="<?php echo $IdNote; ?>" class="logForm_input" placeholder="Mã nhập">
                                     <span class="formMessage"></span>
                                 </div>
                                 
@@ -411,8 +422,8 @@
             </div>
         </div>
     </div>
+
     <script src="./interface/js/index.js"></script>
-    
 </body>
 
 </html>

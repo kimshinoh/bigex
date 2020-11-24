@@ -13,7 +13,7 @@
 			$Count=$_POST['Count'];
             $Stt=$_POST['Stt'];
             $IdOutput=$_POST['IdOutput'];			
-            $sql_query="Insert into outputinfo(Id,IdObject,IdInputInfo,IdCustomer,Count,Stt,IdOutput) values('".$Id."','".$IdObject."','".$IdInputInfo."','".$IdCustomer."','".$Count."','".$Stt."','".$IdOutput."')";
+            $sql_query="Insert into outputinfo values('".$Id."','".$IdObject."','".$IdInputInfo."','".$IdCustomer."','".$Count."','".$Stt."','".$IdOutput."')";
             echo $sql_query;
             // mysqli_query($db,$sql_query);		
             // header('location:../../outputNote.php');

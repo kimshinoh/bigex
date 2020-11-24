@@ -9,8 +9,9 @@
 		{
 
 			$id=$_REQUEST['Id'];
+			$IdNote = $_REQUEST['IdNote'];
 			$sql_query="delete from inputinfo where Id='".$id."'";
             mysqli_query($db,$sql_query);		
-            header('location:../../inputInven.php');
+            header('location:../../inputInven.php?IdNote='.$IdNote.'');
 		}
 	?>
