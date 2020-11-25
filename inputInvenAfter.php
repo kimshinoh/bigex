@@ -150,8 +150,11 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item  optionBar-item-active">
+                        <li class="optionBar-item">
                             <a class="optionBar-item-link" href="#">Tổng Quan</a>
+                        </li>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link " href="/inputNote.php">Nhập xuất</a>
                         </li>
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="/genSup.php">Hàng Hóa</a>

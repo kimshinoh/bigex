@@ -154,6 +154,9 @@
                         <li class="optionBar-item ">
                             <a class="optionBar-item-link " href="/general.php">Tổng Quan</a>
                         </li>
+                        <li class="optionBar-item">
+                            <a class="optionBar-item-link " href="/inputNote.php">Nhập xuất</a>
+                        </li>
                         <li class="optionBar-item optionBar-item-active">
                             <a class="optionBar-item-link" href="#">Hàng Hóa</a>
                         </li>

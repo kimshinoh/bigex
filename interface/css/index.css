@@ -13,7 +13,7 @@ body{
     
 }
 .general-card{
-    width: 400px;
+    width: 50%;
     background-color: rgba(195, 195, 209, 0.712);
     margin: 5px;
     
@@ -37,6 +37,10 @@ body{
 .title-item{
     color:#d69b1bfa;
     font-size: 1.7rem;
+}
+.revenue.title-item{
+    padding-left: 50px;
+    padding-right: 10px;
 }
 .icon-item{
     padding-right: 10px;

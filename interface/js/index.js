@@ -1,25 +1,27 @@
 var modal = document.getElementById(1)
 var add = document.getElementById('add')
 var deletePro = document.getElementById('deletePro')
-function showFormAdd(){
+function showFormAdd() {
     modal.style.display = 'block'
     add.style.display = "block"
     deletePro.style.display = 'none'
 }
-function returnMain(){
+function returnMain() {
     add.style.display = 'none'
     modal.style.display = 'none'
 }
-function showFormDelete(){
+function showFormDelete() {
     modal.style.display = 'block'
     deletePro.style.display = "block"
 }
 var checkList = document.getElementById('list1');
-checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-  if (checkList.classList.contains('visible'))
-    checkList.classList.remove('visible');
-  else
-    checkList.classList.add('visible');
+if(checkList){
+checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+    if (checkList.classList.contains('visible'))
+        checkList.classList.remove('visible');
+    else
+        checkList.classList.add('visible');
+    }
 }
 // add.onclick = ()=> {
 //     checkList.classList.remove('visible');

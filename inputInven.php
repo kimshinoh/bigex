@@ -150,8 +150,11 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item  optionBar-item-active">
-                            <a class="optionBar-item-link" href="#">Tổng Quan</a>
+                        <li class="optionBar-item ">
+                            <a class="optionBar-item-link" href="/general.php">Tổng Quan</a>
+                        </li>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link " href="#">Nhập xuất</a>
                         </li>
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="/genSup.php">Hàng Hóa</a>
@@ -186,8 +189,7 @@
                         <div class="grid_column-10">
                             <div class="home__filter">
                                 <span class="home__filter-item"></span>
-                                <a href="/general.php" class="btn btn-home">Tồn Kho</a>
-                                <a href="" class="btn btn-home btn-main">Nhập Kho</a>
+                                <a href="#" class="btn btn-home btn-main">Nhập Kho</a>
                                 <a href="/outputNote.php" class="btn btn-home ">Xuất Kho</a>
                             </div>
                             <div class="home__content">
