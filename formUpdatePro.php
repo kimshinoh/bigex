@@ -342,7 +342,7 @@
     
         </div>
         <div class="modal_body2">
-            <div id="add" class="modal_innerAdd2">
+            <div id="add1" class="modal_innerAdd2">
                 <div class="logForm_container">
                     <form id="form1" action="./process/Product/updatePro.php" enctype="multipart/form-data" method=POST>
                         <div class="logForm" >

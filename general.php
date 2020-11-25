@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="./interface/css/bass.css">
     <link rel="stylesheet" href="./interface/css/index.css">
     <link rel="stylesheet" href="./interface/css/normalize.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./interface/img/mainico.ico" />
     <link rel="stylesheet" href="./interface/fonts/fontawesome-free-5.14.0-web/css/all.css">
-    <title>Nhập kho</title>
+    <title>Khách hàng</title>
 </head>
 
 <body>
@@ -49,14 +49,14 @@
                                 </a>
                             </a>
                         </li>
-                       
+
                     </ul>
                 </nav>
                 <div class="header__logo">
                     <a href="/home.html">
                         <h1 id="logo">
-                            <svg id="Layer_5" enable-background="new 0 0 64 64" height="50" viewBox="0 0 64 64" width="50"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg id="Layer_5" enable-background="new 0 0 64 64" height="50" viewBox="0 0 64 64"
+                                width="50" xmlns="http://www.w3.org/2000/svg">
                                 <g>
                                     <g>
                                         <g>
@@ -117,7 +117,8 @@
                                                 fill="#e6e9ed" />
                                         </g>
                                         <g>
-                                            <path d="m26 43v5l-6.56 1.87c-.38-1.57-.94-3.09-1.67-4.52z" fill="#f0d0b4" />
+                                            <path d="m26 43v5l-6.56 1.87c-.38-1.57-.94-3.09-1.67-4.52z"
+                                                fill="#f0d0b4" />
                                         </g>
                                         <g>
                                             <path
@@ -150,11 +151,11 @@
             <div class="optionBar">
                 <div class="grid">
                     <ul class="optionBar-list">
-                        <li class="optionBar-item  optionBar-item-active">
-                            <a class="optionBar-item-link" href="/general.php">Tổng Quan</a>
+                        <li class="optionBar-item optionBar-item-active">
+                            <a class="optionBar-item-link " href="#">Tổng Quan</a>
                         </li>
-                        <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="/genSup.php">Hàng Hóa</a>
+                        <li class="optionBar-item ">
+                            <a class="optionBar-item-link" href="/genPro.php">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="/genCus.php">Khách Hàng</a>
@@ -164,64 +165,76 @@
             </div>
             <div class="contentForm">
                 <div class="grid">
-                    <div class="grid_row">
-                        <div class="grid_column-2">
-                            <nav class="category">
-                                <h3 class="category_heading">
-                                    <i class="category_heading-icon fas fa-list"></i>
-                                    Chức Năng
-                                </h3>
-                                    <ul class="catogory-list">
-                                    <li class="category-item" onclick="showFormAdd()">
-                                            <i class="fas fa-plus"></i>  Thêm phiếu nhập
-                                        </li>
-                                    </ul>
-                            </nav>
-                        </div>
-                        <div class="grid_column-10">
-                            <div class="home__filter">
-                                <span class="home__filter-item"></span>
-                                <a href="/general.php" class="btn btn-home">Tồn Kho</a>
-                                <a href="#" class="btn btn-home btn-main">Nhập Kho</a>
-                                <a href="/outputNote.php" class="btn btn-home ">Xuất Kho</a>
-                            </div>
-                            <div class="home__content">
-                                <div class="content-layer">
-                                    <table  class="content">
-                                        <tr class="tablePro">
-                                            <th style="width: 40%;">Mã Phiếu</th>
-                                            <th style="width: 50%;">Thời Gian</th>
-                                            <th style="width: 10%;">#</th>
-                                        </tr>
+                    <div class="home__content">
+                        <div class="content-layer">
+                            <div class="content-general">
+                                <div class="general-card">
+                                    <span class="title-general">Doanh Thu</span>
+                                    
+                                    
+                                </div>
+                                <div class="general-card">
+                                    <span class="title-general">Tồn kho</span>
+                                    <ul class="general-list">
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
                                             if(!$db){
                                                 echo 'Lỗi';
 
                                             } else {
-                                                $select_table = 'select * from input';
+                                                $select_table = 'select * from inventorygeneral order by Id+0 asc';
 
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
-                                                    
-                                                    $i=0;
                                                     while($r=mysqli_fetch_array($value)){
-                                                       
-                                                        $i++;
-                                                        $id = $r['Id'];
-                                                        echo '<tr class="tableProItem">';
-                                                        echo '<td>'.$id.'</td>';
-                                                        echo '<td>'.$r['DateInput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
-                                                        echo '</tr>';
-                                                        
+                                                        $IdObject = $r['IdObject'];
+                                                        $Total = $r['Total'];
+                                                        $SelectObject = 'select DisplayName, Unit from object where Id='.$IdObject;
+                                                        $va = mysqli_query($db, $SelectObject);
+                                                        if(mysqli_num_rows($va)>0){
+                                                            while($r=mysqli_fetch_array($va)){
+                                                                $Object = $r['DisplayName'];
+                                                                $Unit = $r['Unit'];
+                                                            echo "<li class='general-item'><i class='icon-item fas fa-boxes'></i>".$Object;
+                                                            echo ":   <span class='title-item'>$Total</span>";
+                                                            echo "  (".$Unit.")</li>";
+                                                            }
+                                                        }
                                                     }
+                                                }
                                             }
-                                        
-                                            }
-                                                
                                         ?>
-                                    </table>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="general-card">
+                                    <span class="title-general">Đã xuất</span>
+                                    <ul class="general-list">
+                                        <?php
+
+                                            $value1 = mysqli_query($db, $select_table);
+                                            if(mysqli_num_rows($value1)>0){
+                                                while($r=mysqli_fetch_array($value1)){
+                                                    $IdObject = $r['IdObject'];
+                                                    
+                                                    $Sold = $r['sold'];
+                                                    if($Sold != 0){
+                                                    $SelectObject = 'select DisplayName, Unit from object where Id='.$IdObject;
+                                                    $va = mysqli_query($db, $SelectObject);
+                                                    if(mysqli_num_rows($va)>0){
+                                                        while($r=mysqli_fetch_array($va)){
+                                                            $Object = $r['DisplayName'];
+                                                            $Unit = $r['Unit'];
+                                                        echo "<li class='general-item'><i class='icon-item far fa-check-circle'></i>".$Object;
+                                                        echo ":   <span class='title-item'>$Sold</span>";
+                                                        echo "  (".$Unit.")</li>";
+                                                    }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ?>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -319,39 +332,7 @@
 
         </div>
     </footer>
-    <div id="1" class="modal">
-        <div  class="modal_overlay" onclick="returnMain()">
-    
-        </div>
-        <div class="modal_body">
-            <div id="add" class="modal_innerAdd">
-                <div class="logForm_container">
-                    <form id="form1" action="./process/Note/addNote.php" method=POST>
-                        <div class="logForm" >
-                            <div class="logForm_Header">
-                                <h3 class="logForm_Heading">Nhập phiếu</h3>
-                            </div>
-                            <div class="logForm_main">
-                                <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Mã Phiếu">
-                                    <span class="formMessage"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input id="DateInput" name="DateInput" type="datetime-local" class="logForm_input" placeholder="Ngày Nhập">
-                                    <span class="formMessage"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="logForm_control">
-                            <input type="submit" value="Thêm" class="btn btn-main"></input>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="./interface/js/index.js"></script>
-    
 </body>
 
 </html>

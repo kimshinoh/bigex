@@ -362,6 +362,7 @@
                         <div class="logForm" >
                             <div class="logForm_Header">
                                 <h3 class="logForm_Heading">Nhập vào kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
+                                <a href="/inputInven.php?IdNote=<?php echo $IdNote; ?>" class="btn btn-home">Quay Lại</a>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">

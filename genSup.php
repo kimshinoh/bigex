@@ -152,13 +152,13 @@
                 <div class="grid">
                     <ul class="optionBar-list">
                         <li class="optionBar-item ">
-                            <a class="optionBar-item-link " href="#">Tổng Quan</a>
+                            <a class="optionBar-item-link " href="/general.php">Tổng Quan</a>
                         </li>
                         <li class="optionBar-item optionBar-item-active">
                             <a class="optionBar-item-link" href="#">Hàng Hóa</a>
                         </li>
                         <li class="optionBar-item">
-                            <a class="optionBar-item-link" href="#">Khách Hàng</a>
+                            <a class="optionBar-item-link" href="/genCus.php">Khách Hàng</a>
                         </li>
                     </ul>
                 </div>
