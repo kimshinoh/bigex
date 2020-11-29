@@ -362,7 +362,8 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
+                                <span class="logForm_title">Mã xuất :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="VD: 12" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
@@ -370,7 +371,7 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select name="IdCustomer" id="IdCustomer" class="logForm_input">
+                                    <select name="IdCustomer" id="IdCustomer" class="logForm_input" required>
                                         <option value="">-----Chọn khách hàng----</option>
                                         <?php 
                                         $query2 = "select Customer.Id, Customer.DisplayName from Customer";
@@ -387,6 +388,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                <span class="logForm_title">Số lượng :</span>
                                 <?php 
                                         $query3 = "select total from inventoryGeneral where IdObject = '".$IdObjectPost."' ";
                                         $valu = mysqli_query($db, $query3);
@@ -396,11 +398,12 @@
                                             }
                                         }
                                         ?>
-                                    <input id="Count" name="Count" type="number" min='0' max=<?php echo $MaxCount; ?> class="logForm_input" placeholder="Số lượng xuất">
+                                    <input id="Count" name="Count" type="number" min='0' max=<?php echo $MaxCount; ?> class="logForm_input" placeholder="Số lượng xuất" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Trạng Thái">
+                                <span class="logForm_title">Trạng thái :</span>
+                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Đủ hàng yêu cầu ?" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">

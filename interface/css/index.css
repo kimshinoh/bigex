@@ -322,7 +322,7 @@ footer {
 .logForm_Heading{
     font-size: 2.2rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
 .logForm_main{
@@ -333,7 +333,7 @@ footer {
     display: flex;
     margin-bottom: 16px;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
   }
 .form-group.invalid .logForm_input {
     border-color: #f33a58;
@@ -347,7 +347,7 @@ footer {
 }
 
 .logForm_input{
-    margin: 10px 0 10px 0;
+    margin: 5px 0 0px 0;
     font-size: 1.5rem;
     height: 40px;
     outline:none;
@@ -359,10 +359,11 @@ footer {
 }
 .logForm_title{
     font-size: 1.4rem;
-    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: 600;
 }
 .logForm_input:focus{
-    border-color: rgba(243, 83, 83, 0.5);
+    border-color: rgba(47, 0, 255, 0.5);
 }
 .logForm_note{
     font-size: 1.3rem;
@@ -429,18 +430,19 @@ footer {
     border: 1px solid #ccc;
     border-top: none;
     width: 437px;
-    background-color: rgba(204, 204, 204, 0.7);
+    background-color: rgb(87, 128, 241);
   }
   
   .dropdown-check-list ul.items li {
     list-style: none;
     font-size: 1.4rem;
     padding: 5px 0 5px 30px;
-    
+    color: white;
+    font-weight: 600;
   }
   
   .dropdown-check-list.visible .anchor {
-    color: black;
+    color: rgb(0, 58, 250);
   }
   
   .dropdown-check-list.visible .items {

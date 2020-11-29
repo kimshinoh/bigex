@@ -339,11 +339,13 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Mã Phiếu">
+                                <span class="logForm_title">Mã phiếu xuất :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Vd: 01" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="DateOutput" name="DateOutput" type="datetime-local" class="logForm_input" placeholder="Ngày Nhập">
+                                <span class="logForm_title">Ngày xuất :</span>
+                                    <input id="DateOutput" name="DateOutput" type="datetime-local" class="logForm_input" required>
                                     <span class="formMessage"></span>
                                 </div>
                             </div>

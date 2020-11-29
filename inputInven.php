@@ -371,7 +371,7 @@
                             <div class="logForm_main">
                                 <div class="form-group">
                                     <span class="logForm_title">Chọn Nhà Cung cấp</span>
-                                    <select name="IdSuplier" id="IdSuplier" class="logForm_input">
+                                    <select name="IdSuplier" id="IdSuplier" class="logForm_input" required>
 
                                         <?php 
                                         $query2 = "select suplier.DisplayName as Name,suplier.Id as Id from suplier";

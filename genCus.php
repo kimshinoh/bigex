@@ -349,15 +349,17 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id">
+                                <span class="logForm_title">Id :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="VD: 01" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên khách hàng">
+                                <span class="logForm_title">Tên khách hàng :</span>
+                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Nguyen Manh Truong" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select name="TypeCustomer" id="TypeCustomer" class="logForm_input">
+                                    <select name="TypeCustomer" id="TypeCustomer" class="logForm_input" required>
                                         <option value="">-------Loại khách hàng-------</option>
                                         <option value="Khách lẻ">Khách lẻ</option>
                                         <option value="Khách buôn">Khách buôn</option>
@@ -367,24 +369,28 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Địa chỉ">
+                                <span class="logForm_title">Địa chỉ :</span>
+                                    <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Ha Noi" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="Số điện thoại">
+                                <span class="logForm_title">Số điên thoại :</span>
+                                    <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="0123456789" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Email" name="Email" type="text" class="logForm_input" placeholder="Email">
+                                <span class="logForm_title">Email :</span>
+                                    <input id="Email" name="Email" type="text" class="logForm_input" placeholder="abc@xyz.com" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Thông tin thêm">
+                                <span class="logForm_title">Thông tin thêm :</span>
+                                    <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Sở thích khách hàng" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <span class="logForm_title">Ngày mua</span>
-                                    <input id="ContractDate" name="ContractDate" type="datetime-local" class="logForm_input">
+                                <span class="logForm_title">Ngày bắt đầu mua hàng :</span>
+                                    <input id="ContractDate" name="ContractDate" type="datetime-local" class="logForm_input" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 

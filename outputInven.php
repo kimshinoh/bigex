@@ -360,8 +360,8 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <span class="logForm_title">Chọn Sản phẩm xuất</span>
-                                    <select name="IdObject" id="IdObject" class="logForm_input">
+                                    <span class="logForm_title">Chọn sản phẩm xuất :</span>
+                                    <select name="IdObject" id="IdObject" class="logForm_input" required>
                                         <?php
                                         $query1 = "select IdObject from inventoryGeneral";
     

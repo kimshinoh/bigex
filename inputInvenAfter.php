@@ -373,7 +373,8 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
+                                <span class="logForm_title">Id :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="VD: 12" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
@@ -381,8 +382,7 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    
-                                    <select name="IdObject" id="IdObject" class="logForm_input">
+                                    <select name="IdObject" id="IdObject" class="logForm_input" required>
                                         <option value="">-----Chọn sản phẩm----</option>
                                         <?php 
                                         $query = "select object.DisplayName,object.Id from object inner join ob_su on object.id = ob_su.IdObject where ob_su.IdSuplier = '".$IdSuplierPost."'";
@@ -400,19 +400,23 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Count" name="Count" type="number" class="logForm_input" placeholder="Số lượng">
+                                <span class="logForm_title">Số lượng :</span>
+                                    <input id="Count" name="Count" type="number" class="logForm_input" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="InputPrice" name="InputPrice" type="number" class="logForm_input" placeholder="Giá Nhập">
+                                <span class="logForm_title">Giá nhập (VND) :</span>
+                                    <input id="InputPrice" name="InputPrice" oninput="this.value=numberWithCommas(this.value)" type="text" class="logForm_input" placeholder="5" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="OutputPrice" name="OutputPrice" type="number" class="logForm_input" placeholder="Giá Xuất">
+                                <span class="logForm_title">Giá xuất (VND) :</span>
+                                    <input id="OutputPrice" name="OutputPrice" oninput="this.value=numberWithCommas(this.value)" type="text" class="logForm_input" placeholder="10" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Trạng Thái">
+                                <span class="logForm_title">Trạng thái :</span>
+                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Thêm hàng/ Hàng mới ?" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">

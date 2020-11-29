@@ -355,16 +355,16 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
+                                <span class="logForm_title">Id :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="VD: 12" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên">
+                                <span class="logForm_title">Tên Nhà Cung Cấp :</span>
+                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Ncc" required>
                                     <span class="formMessage"></span>
                                 </div>
-                                <div id="list1" class="dropdown-check-list" tabindex="100">
+                                <div id="list1" class="dropdown-check-list" tabindex="100" required>
                                     <span id="anchor" class="anchor">Chọn sản phẩm</span>
                                     <ul class="items">
                                         <?php 
@@ -374,7 +374,7 @@
                                             while($row=mysqli_fetch_array($va)){
                                                 $name = $row['DisplayName'];
                                                 $id = $row['Id'];
-                                                echo "<li><input type='checkbox' name='IdObject[]' value='".$id."'>".$name."</li>";
+                                                echo "<li><input type='checkbox' name='IdObject[]' value='".$id."'>&nbsp&nbsp".$name."</li>";
                                             }
                                         }
                                         
@@ -383,28 +383,28 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Địa chỉ">
+                                    <span class="logForm_title">Địa chỉ :</span>
+                                    <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Ha Noi" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="Số điện thoại">
+                                <span class="logForm_title">Số điện thoại :</span>
+                                    <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="0123456789" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="Email" name="Email" type="text" class="logForm_input" placeholder="Email">
+                                <span class="logForm_title">Email :</span>
+                                    <input id="Email" name="Email" type="text" class="logForm_input" placeholder="abc@xyz.com" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Thông tin thêm">
+                                <span class="logForm_title">Thông tin thêm :</span>
+                                    <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Ncc cung cấp những gì" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                <span class="logForm_title">Ngày GHHD</span>
-                                    <input id="ContractDate" name="ContractDate" type="datetime-local" class="logForm_input">
+                                <span class="logForm_title">Ngày hợp tác :</span>
+                                    <input id="ContractDate" name="ContractDate" type="datetime-local" class="logForm_input" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 

@@ -344,15 +344,17 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id">
+                                <span class="logForm_title">Id :</span>
+                                    <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên sản phẩm">
+                                <span class="logForm_title">Tên sản phẩm :</span>
+                                    <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Bánh mì khoai chuôi" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select name="Unit" id="Unit" class="logForm_input">
+                                    <select name="Unit" id="Unit" class="logForm_input" required>
                                         <option value="">----- Đơn Vị ------</option>
                                         <option value="Cái">Cái</option>
                                         <option value="Chiếc">Chiếc</option>
@@ -365,12 +367,12 @@
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">Ảnh</span>
-                                    <input id="Image" name="Image" type="file" class="logForm_input files" >
+                                    <input id="Image" name="Image" type="file" class="logForm_input files" required>
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
                                     <span class="logForm_title">QR Code</span>
-                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files">
+                                    <input id="QRCode" name="QRCode" type="file" class="logForm_input files" required>
                                     <span class="formMessage"></span>
                                 </div>
                             </div>
