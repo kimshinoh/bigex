@@ -1,13 +1,18 @@
 body{
-    background-image: url(../img/back.jpg);
+    background-image: url(../img/back1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.85; 
 }
+footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
 .content-general{
     background-color: rgba(231, 248, 248, 0.699);
     height: 400px;
-    border: 5px solid #bb8550;
+    border: 5px solid var(--primary-color);
     border-radius: 5px;
     display: flex;
     
@@ -22,7 +27,7 @@ body{
     padding-left: 40%;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #bb8550;
+    color: var(--primary-color);
     
 }
 .general-list{
@@ -35,7 +40,7 @@ body{
     font-weight: 600;
 }
 .title-item{
-    color:#d69b1bfa;
+    color:var(--primary-color);
     font-size: 1.7rem;
 }
 .revenue.title-item{
@@ -44,11 +49,11 @@ body{
 }
 .icon-item{
     padding-right: 10px;
-    color: #d69b1bfa;
+    color:var(--primary-color);
 }
 .header{
     height: var(--header-height);
-    background-image: linear-gradient(0 ,#bb8550 ,#d3a06c);
+    background-image: linear-gradient(0 , #1e607a ,  #4a8faa );
 }
 .header__title{
     position: relative;
@@ -152,7 +157,7 @@ body{
 }
 .optionBar{
     height: var(--optionbar-height);
-    background-color: rgb(189, 134, 80);
+    background-color: var(--primary-color);
     width: 100%;
     padding-top: 1px;
 }
@@ -160,7 +165,7 @@ body{
     padding: 10px 10px 10px 10px;
 }
 .optionBar-item.optionBar-item-active{
-    background-color: rgb(231, 197, 163);
+    background-color: rgb(47, 139, 214);
     border-radius: 3px;
 }
 .optionBar-list{
@@ -209,7 +214,7 @@ body{
     position: relative;
 }
 .category-item:hover{
-    color: #bb8550;
+    color:var(--primary-color);
     right: -8px;
     cursor: pointer;
 }
@@ -230,6 +235,7 @@ body{
 }
 .tablePro{
     font-size: 1.4rem;
+    color: white;
 }
 .tableProItem{
     font-size: 1.3rem;
@@ -247,7 +253,7 @@ body{
 .footer{
     
     padding-top: 16px;
-    border-top: 3px solid #bb8550;
+    border-top: 3px solid var(--primary-color);
     background-color: #e2e5eb;
 }
 .footer__heading{
@@ -265,7 +271,7 @@ body{
     padding: 10px 0;
 }
 .footer--item-link:hover{
-    color: #bb8550;
+    color:var(--primary-color);
 }
 .footer__download{
     display: flex;
@@ -439,4 +445,31 @@ body{
   
   .dropdown-check-list.visible .items {
     display: block;
+  }
+  #table-wrapper {
+    position:relative;
+  }
+  #table-scroll {
+    height:485px;
+    overflow:auto;  
+    
+  }
+  #table-wrapper table {
+    width:100%;
+  
+  }
+  #table-wrapper table * {
+    background: rgba(204, 204, 204, 0.7);
+    color:black;
+  }
+  #table-wrapper table tr th{
+      background-color:var(--primary-color);
+      color: white;
+      height: 43px;
+  }
+  .deleteItem{
+    color: red !important;
+  }
+  .fixItem{
+    color: cornflowerblue !important;
   }

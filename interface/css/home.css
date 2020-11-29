@@ -9,7 +9,7 @@ main {
 
 .landing {
   min-height: 100vh;
-  background: url("../img/back.jpg");
+  background: url("../img/back1.jpg");
   background-size: cover;
   padding: 0rem 5rem;
 }
@@ -27,7 +27,7 @@ nav {
   padding-left: 10rem;
   font-size: 1.2rem;
   font-weight: 700;
-  color:#d3a06c;
+  color: #00445a;
   text-decoration: none;
 }
 #logo {
@@ -44,7 +44,7 @@ nav {
   font-size: 5rem;
   font-family: "Lobster", cursive;
   color: rgb(255, 255, 255);
-  opacity: 0.4 !important;
+  opacity: 0.6 !important;
 }
 
 .intro {

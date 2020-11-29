@@ -194,6 +194,8 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
+                                <div id="table-wrapper">
+                                <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
@@ -236,7 +238,7 @@
                                                         echo '<td>'.$r['Count'].'</td>';
                                                         echo '<td>'.$r['Stt'].'</td>';
                                                         echo '<td>'.$r['IdOutput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Inventory/deleteOutput.php?Id=$id'><i class='far fa-trash-alt'></i></a>";
+                                                        echo "<td><a class='tool' href='/process/Inventory/deleteOutput.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a>";
                                                         echo '</tr>';
                                                         
                                                     }
@@ -247,6 +249,8 @@
                                         ?>
                                     </table>
                                 </div>
+                                        </div>
+                                        </div>
                             </div>
                         </div>
                     </div>

@@ -190,6 +190,8 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
+                                <div id="table-wrapper">
+                                <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
@@ -236,7 +238,7 @@
                                                     echo '<td>'.$r['Email'].'</td>';
                                                     echo '<td>'.$r['MoreInfo'].'</td>';
                                                     echo '<td>'.$r['ContractDate'].'</td>';
-                                                    echo "<td><a class='tool' href='/process/Suplier/deleteSup.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdateSup.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
+                                                    echo "<td><a class='tool' href='/process/Suplier/deleteSup.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/formUpdateSup.php?Id=$id'><i class='fixItem fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
                                                     
                                                 }
@@ -248,6 +250,8 @@
                                     </table>
                                 </div>
                             </div>
+                                        </div>
+                                        </div>
                         </div>
                     </div>
                 </div>
@@ -309,7 +313,7 @@
                             <li class="footer--item">
                                 <a href="#" class="footer--item-link">Cơ sở dữ liệu</a>
                             </li>
-                            <li class="footer--item">
+                            
                     </h3>
                 </div>
                 <div class="grid_column-2-4">
@@ -325,12 +329,6 @@
                         </li>
                         <li class="member_item">
                             <span class="member-name">Vi Trung Hiếu</span>
-                        </li>
-                        <li class="member_item">
-                            <span class="member-name">Truong</span>
-                        </li>
-                        <li class="member_item">
-                            <span class="member-name">Truong</span>
                         </li>
                     </ul>
                 </div>
@@ -357,10 +355,12 @@
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
+                                <span class="logForm_title">Ngày GHHD</span>
                                     <input id="Id" name="Id" type="text" class="logForm_input" placeholder="Id VD: 12">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
+                                <span class="logForm_title">Ngày GHHD</span>
                                     <input id="DisplayName" name="DisplayName" type="text" class="logForm_input" placeholder="Tên">
                                     <span class="formMessage"></span>
                                 </div>
@@ -383,18 +383,22 @@
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
+                                    <span class="logForm_title">Ngày GHHD</span>
                                     <input id="Address" name="Address" type="text" class="logForm_input" placeholder="Địa chỉ">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
+                                <span class="logForm_title">Ngày GHHD</span>
                                     <input id="Phone" name="Phone" type="text" class="logForm_input" placeholder="Số điện thoại">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
+                                <span class="logForm_title">Ngày GHHD</span>
                                     <input id="Email" name="Email" type="text" class="logForm_input" placeholder="Email">
                                     <span class="formMessage"></span>
                                 </div>
                                 <div class="form-group">
+                                <span class="logForm_title">Ngày GHHD</span>
                                     <input id="MoreInfo" name="MoreInfo" type="text" class="logForm_input" placeholder="Thông tin thêm">
                                     <span class="formMessage"></span>
                                 </div>

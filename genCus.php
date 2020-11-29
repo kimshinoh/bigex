@@ -188,6 +188,8 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
+                                <div id="table-wrapper">
+                                <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
@@ -224,7 +226,7 @@
                                                     echo '<td>'.$r['MoreInfo'].'</td>';
                                                     echo '<td>'.$r['ContractDate'].'</td>';
                                                     echo '<td>'.$r['TypeCustomer'].'</td>';
-                                                    echo "<td><a class='tool' href='/process/Customer/deleteCus.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdateCus.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
+                                                    echo "<td><a class='tool' href='/process/Customer/deleteCus.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/formUpdateCus.php?Id=$id'><i class='fixItem fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
                                                     
                                                 }
@@ -235,6 +237,8 @@
                                         ?>
                                     </table>
                                 </div>
+                                        </div>
+                                        </div>
                             </div>
                         </div>
                     </div>

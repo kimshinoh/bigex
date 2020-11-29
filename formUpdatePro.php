@@ -189,6 +189,8 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
+                                <div id="table-wrapper">
+                                <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
@@ -219,7 +221,7 @@
                                                     echo '<td>'.$r['Unit'].'</td>';
                                                     echo "<td><img class='tableProImg' alt='Ảnh ".$r['DisplayName']."' src='storeImg/".$r['Image']."'></td>";
                                                     echo "<td><img class='tableProImg' alt='QrCode ".$r['DisplayName']."' src='storeImg/".$r['QRCode']."'></td>";
-                                                    echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fas fa-wrench'></i></a></td>";
+                                                    echo "<td><a class='tool' href='/process/Product/deletePro.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/formUpdatePro.php?Id=$id'><i class='fixItem fas fa-wrench'></i></a></td>";
                                                     echo '</tr>';
                                                     
                                                 }
@@ -232,6 +234,8 @@
                                 </div>
                             </div>
                         </div>
+                                        </div>
+                                        </div>
                     </div>
                 </div>
             </div>

@@ -189,6 +189,8 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
+                                <div id="table-wrapper">
+                                <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 40%;">Mã Phiếu</th>
@@ -214,7 +216,7 @@
                                                         echo '<tr class="tableProItem">';
                                                         echo '<td>'.$id.'</td>';
                                                         echo '<td>'.$r['DateInput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
+                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
                                                         echo '</tr>';
                                                         
                                                     }
@@ -227,6 +229,8 @@
                                 </div>
                             </div>
                         </div>
+                                        </div>
+                                        </div>
                     </div>
                 </div>
             </div>

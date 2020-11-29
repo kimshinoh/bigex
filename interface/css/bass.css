@@ -8,6 +8,8 @@
     --header-withSearch-height: calc(var(--header-height)- var(--navBar-height));
     --optionbar-height:50px;
     --footer-height:200px;
+    --primary-color: #1e607a;
+    --secondary--color: #4a8faa;
 }
 html{
     font-family: 'Roboto', sans-serif;
@@ -137,17 +139,17 @@ html{
     background-color: white;
 }
 .btn.btn-main{
-    background-color: #bb8550;
+    background-color: #00445a;
     color: var(--white-color);
 }
 .btn-return:hover{
     background-color: rgba(41, 41, 41, 0.4);
 }
 .btn.btn-main:hover{
-    background-color:#bb8550a9;
+    background-color:#b5c5ca;
 }
 .btn.btn-home:hover{
-    background-color:#bb8550a9;
+    background-color:#92becc;
     color: var(--white-color);
 }
 
