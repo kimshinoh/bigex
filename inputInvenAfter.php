@@ -195,9 +195,9 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
-                                    <table  class="content">
                                     <div id="table-wrapper">
                                 <div id="table-scroll">
+                                    <table  class="content">
                                         <tr class="tablePro">
                                             <th style="width: 3%;">ID</th>
                                             <th style="width: 20%;">Sản Phẩm</th>

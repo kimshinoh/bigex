@@ -229,7 +229,7 @@
                                                     echo '<td>';
                                                     if(mysqli_num_rows($val)>0){
                                                         while($ro=mysqli_fetch_array($val)){
-                                                            echo $ro['DisplayName'],',';
+                                                            echo $ro['DisplayName'],'<br />';
                                                         }
                                                     }
                                                     echo '</td>';

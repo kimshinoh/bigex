@@ -179,7 +179,8 @@
                                             } 
                                         ?>
                                 <div class="general-card">
-                                    <span class="title-general">Tồn kho</span>
+                                        
+                                        <span class="title-general">Tồn kho</span>
                                     <ul class="general-list">
                                             <?php
                                                 $select_table = 'select * from inventorygeneral order by Id+0 asc';
