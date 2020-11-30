@@ -193,9 +193,9 @@
                                 <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
-                                            <th style="width: 40%;">Mã Phiếu</th>
+                                            <th style="width: 10%;">Mã Phiếu</th>
                                             <th style="width: 50%;">Thời Gian</th>
-                                            <th style="width: 10%;">#</th>
+                                            <th style="width: 40%;">#</th>
                                         </tr>
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
@@ -309,10 +309,7 @@
                             <span class="member-name">Vi Trung Hiếu</span>
                         </li>
                         <li class="member_item">
-                            <span class="member-name">Truong</span>
-                        </li>
-                        <li class="member_item">
-                            <span class="member-name">Truong</span>
+                            <span class="member-name">Nguyễn Huy Tuấn</span>
                         </li>
                     </ul>
                 </div>

@@ -18,7 +18,7 @@
 			$valu = mysqli_query($db, $get);
 				if(mysqli_num_rows($valu)>0){
 					while($row=mysqli_fetch_array($valu)){
-						$Total = $row['Total'];
+						$Total = $row['total'];
 						$Sold = $row['sold'];
 					}
 				}
@@ -26,6 +26,7 @@
 			$TotalUpdate = $Total - $Count;
 			$query = "update inventoryGeneral set total='".$TotalUpdate."',sold='".$SoldUpdate."' where IdObject = '".$IdObject."'";
 			mysqli_query($db,$query);
-            header('location:../../outputInven.php?IdNote='.$IdOutput);
+			header('location:../../outputInven.php?IdNote='.$IdOutput);
+			
 		}
 	?>

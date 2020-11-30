@@ -330,6 +330,9 @@
                         <li class="member_item">
                             <span class="member-name">Vi Trung Hiếu</span>
                         </li>
+                        <li class="member_item">
+                            <span class="member-name">Nguyễn Huy Tuấn</span>
+                        </li>
                     </ul>
                 </div>
             </div>

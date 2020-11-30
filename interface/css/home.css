@@ -9,7 +9,7 @@ main {
 
 .landing {
   min-height: 100vh;
-  background: url("../img/back1.jpg");
+  background: url("../img/back4.jpg");
   background-size: cover;
   padding: 0rem 5rem;
 }
@@ -27,7 +27,7 @@ nav {
   padding-left: 10rem;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #00445a;
+  color: #bae1ff;
   text-decoration: none;
 }
 #logo {

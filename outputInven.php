@@ -330,10 +330,7 @@
                             <span class="member-name">Vi Trung Hiếu</span>
                         </li>
                         <li class="member_item">
-                            <span class="member-name">Truong</span>
-                        </li>
-                        <li class="member_item">
-                            <span class="member-name">Truong</span>
+                            <span class="member-name">Nguyễn Huy Tuấn</span>
                         </li>
                     </ul>
                 </div>
@@ -353,15 +350,21 @@
         <div class="modal_body">
             <div id="add" class="modal_innerAdd">
                 <div class="logForm_container">
-                    <form id="form1" action="/outputInvenAfter.php" method=POST>
+                    <form id="form1" action="./process/Inventory/addOutput.php" method=POST>
                         <div class="logForm" >
                             <div class="logForm_Header">
                                 <h3 class="logForm_Heading">Xuất kho &#40; Phiếu số <?php echo $IdNote; ?>	&#41;</h3>
                             </div>
                             <div class="logForm_main">
                                 <div class="form-group">
-                                    <span class="logForm_title">Chọn sản phẩm xuất :</span>
+                                    <span class="logForm_title">Mã xuất :</span>
+                                        <input id="Id" name="Id" type="text" class="logForm_input" placeholder="VD: 12" required>
+                                        <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="logForm_title">Sản phẩm xuất :</span>
                                     <select name="IdObject" id="IdObject" class="logForm_input" required>
+                                    <option value="">-----Chọn sản phẩm----</option>
                                         <?php
                                         $query1 = "select IdObject from inventoryGeneral";
     
@@ -384,7 +387,36 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input id="IdNote" name="IdNote" type="hidden" value="<?php echo $IdNote; ?> " class="logForm_input" placeholder="Số lượng">
+                                <span class="logForm_title">Khách hàng :</span>
+                                    <select name="IdCustomer" id="IdCustomer" class="logForm_input" required>
+                                        <option value="">-----Chọn khách hàng----</option>
+                                        <?php 
+                                        $query2 = "select Customer.Id, Customer.DisplayName from Customer";
+    
+                                        $val = mysqli_query($db, $query2);
+                                        if(mysqli_num_rows($val)>0){
+                                            while($row=mysqli_fetch_array($val)){
+                                                $name = $row['DisplayName'];
+                                                $id = $row['Id'];
+                                                echo "<option value='".$id."'>".$name."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                <span class="logForm_title">Số lượng :</span>
+                                
+                                    <input id="Count" name="Count" type="number" min='0' max='' class="logForm_input" placeholder="Số lượng xuất" required>
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                <span class="logForm_title">Trạng thái :</span>
+                                    <input id="Stt" name="Stt" type="text" class="logForm_input" placeholder="Đủ hàng yêu cầu ?" required>
+                                    <span class="formMessage"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input id="IdOutput" name="IdOutput" type="hidden" value="<?php echo $IdNote; ?> " class="logForm_input" placeholder="Số lượng">
                                     <span class="formMessage"></span>
                                 </div>
                             </div>
@@ -398,6 +430,26 @@
         </div>
     </div>
     <script src="./interface/js/index.js"></script>
+    <script src="./interface/js/jquery.js"></script> 
+    <script type="text/javascript">
+    $(document).ready(function(){ 
+        $("#IdObject").change(function(){ 
+        var IdObject = $(this).val(); 
+        var dataString = "IdObject="+IdObject; 
+
+        $.ajax({ 
+            type: "POST", 
+            url: "/process/Inventory/dataOfProductOut.php", 
+            data: dataString, 
+            success: function(result){ 
+                $('#Count').attr("max",result);
+                $('#Count').attr("value",result);
+            }
+        });
+
+        });
+    });
+    </script>
     
 </body>
 
