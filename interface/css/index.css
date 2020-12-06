@@ -168,11 +168,23 @@ footer {
     padding-top: 1px;
 }
 .optionBar-item{
-    padding: 10px 10px 10px 10px;
+    padding: 10px 30px 12px 30px;
 }
 .optionBar-item.optionBar-item-active{
-    background-color: rgb(47, 139, 214);
+    background-color: rgb(54, 44, 44);
     border-radius: 3px;
+    position: relative;
+}
+.optionBar-item.optionBar-item-active::after{
+    content: '';
+    width: 0; 
+    position: absolute;
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(54, 44, 44);
+    top: 100%;
+    left: 30%;
 }
 .optionBar-list{
     list-style: none;
@@ -228,7 +240,12 @@ footer {
 
 .home__filter{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    background-color: #c1bdb9;
+    border-radius: 3px;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    height: 50px;
 }
 
 .home__content{
