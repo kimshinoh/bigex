@@ -189,7 +189,7 @@
                                                     while($r=mysqli_fetch_array($value)){
                                                         $IdObject = $r['IdObject'];
                                                         $Total = $r['Total'];
-                                                        $SelectObject = 'select DisplayName, Unit from object where Id='.$IdObject;
+                                                        $SelectObject = "select DisplayName, Unit from object where Id='".$IdObject."'";
                                                         $va = mysqli_query($db, $SelectObject);
                                                         if(mysqli_num_rows($va)>0){
                                                             while($r=mysqli_fetch_array($va)){
@@ -219,7 +219,7 @@
                                                     
                                                     $Sold = $r['sold'];
                                                     if($Sold != 0){
-                                                    $SelectObject = 'select DisplayName, Unit from object where Id='.$IdObject;
+                                                    $SelectObject = "select DisplayName, Unit from object where Id='".$IdObject."'";
                                                     $va = mysqli_query($db, $SelectObject);
                                                     if(mysqli_num_rows($va)>0){
                                                         while($r=mysqli_fetch_array($va)){

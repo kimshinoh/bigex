@@ -498,3 +498,6 @@ footer {
   .fixItem{
     color: cornflowerblue !important;
   }
+  .search-input{
+      width: 70%;
+  }

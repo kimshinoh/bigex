@@ -193,9 +193,9 @@
                                 <div id="table-scroll">
                                     <table  class="content">
                                         <tr class="tablePro">
-                                            <th style="width: 40%;">Mã Phiếu</th>
+                                            <th style="width: 10%;">Mã Phiếu</th>
                                             <th style="width: 50%;">Thời Gian</th>
-                                            <th style="width: 10%;">#</th>
+                                            <th style="width: 40%;">#</th>
                                         </tr>
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
@@ -216,7 +216,7 @@
                                                         echo '<tr class="tableProItem">';
                                                         echo '<td>'.$id.'</td>';
                                                         echo '<td>'.$r['DateOutput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Note/deleteNoteOut.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/outputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
+                                                        echo "<td><a class='tool' href='/process/Note/deleteNoteOut.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/outputInven.php?IdNote=$id'><i class='fas fa-plus'></i></a></td>";
                                                         echo '</tr>';
                                                         
                                                     }

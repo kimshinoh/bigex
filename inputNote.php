@@ -216,7 +216,7 @@
                                                         echo '<tr class="tableProItem">';
                                                         echo '<td>'.$id.'</td>';
                                                         echo '<td>'.$r['DateInput'].'</td>';
-                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-search'></i></a></td>";
+                                                        echo "<td><a class='tool' href='/process/Note/deleteNote.php?Id=$id'><i class='deleteItem far fa-trash-alt'></i></a><a class='tool' href='/inputInven.php?IdNote=$id'><i class='fas fa-plus'></i></a></td>";
                                                         echo '</tr>';
                                                         
                                                     }

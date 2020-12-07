@@ -346,7 +346,7 @@
     </footer>
     <?php
             $Id=$_REQUEST['Id'];
-			$sql_read="select * from suplier where Id=".$Id."";
+			$sql_read="select * from suplier where Id='".$Id."'";
 			$kq=mysqli_query($db,$sql_read);
 			if(mysqli_num_rows($kq)>0)
 			{

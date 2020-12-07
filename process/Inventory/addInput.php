@@ -14,7 +14,8 @@
 			$OutputPrice=$_POST['OutputPrice'];
             $Stt=$_POST['Stt'];
             $IdInput=$_POST['IdInput'];			
-			$sql_query="Insert into inputinfo values('".$Id."','".$IdSuplier."','".$IdInput."',".$IdObject.",".$Count.",'".$InputPrice."','".$OutputPrice."','".$Stt."')";
+			$sql_query="Insert into inputinfo values('".$Id."','".$IdSuplier."','".$IdInput."','".$IdObject."',".$Count.",'".$InputPrice."','".$OutputPrice."','".$Stt."')";
+			echo $sql_query;
 			mysqli_query($db,$sql_query);
 			$select_table = "select inventorygeneral.IdObject as IdFocus, inventorygeneral.Total from inventorygeneral inner join inputinfo on inventorygeneral.IdObject=inputinfo.IdObject where inputinfo.IdObject = '".$IdObject."'";
 			$value = mysqli_query($db, $select_table);

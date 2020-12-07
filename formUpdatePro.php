@@ -374,6 +374,9 @@
                                         <option value="Thùng" <?php if($Unit == 'Thùng') echo 'selected'; ?>>Thùng</option>
                                         <option value="Quyển" <?php if($Unit == 'Quyển') echo 'selected'; ?>>Quyển</option>
                                         <option value="Bộ" <?php if($Unit == 'Bộ') echo 'selected'; ?>>Bộ</option>
+                                        <option value="Kg" <?php if($Unit == 'Kg') echo 'selected'; ?>>Kg</option>
+                                        <option value="Bao"<?php if($Unit == 'Bao') echo 'selected'; ?>>Bao</option>
+                                        <option value="Bọc"<?php if($Unit == 'Bọc') echo 'selected'; ?>>Bọc</option>
 
                                     </select>
                                     <span class="formMessage"></span>

@@ -178,6 +178,10 @@
                                         <li class="category-item" onclick="showFormAdd()">
                                         <i class="fas fa-plus"></i>  Thêm khách hàng
                                         </li>
+                                        <li class="category-item" >
+                                        <input type="text" class="search-input" id="search-input" placeholder='Tên KH'>
+                                        <i id= 'search-icon' class="fas fa-search"></i>
+                                        </li>
                                     </ul>
                             </nav>
                         </div>
@@ -202,6 +206,7 @@
                                             <th style="width: 12,85%;">Loại KH</th>
                                             <th style="width: 7%;">#</th>
                                         </tr>
+                                        <tr id='data'>
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
                                             if(!$db){
@@ -235,6 +240,7 @@
                                             }
                                                 
                                         ?>
+                                        </tr>
                                     </table>
                                 </div>
                                         </div>
@@ -403,6 +409,30 @@
         </div>
     </div>
     <script src="./interface/js/index.js"></script>
+    <script src="./interface/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){ 
+            $('#search-icon').click(function(){
+                var dataSearch = document.getElementById('search-input').value;
+                var table = document.getElementById('data');
+                table.classList.remove('tableProItem');
+                var remove = document.getElementsByClassName('tableProItem');
+                var arrayRemove = Array.from(remove);
+                arrayRemove.forEach((item) => {
+                     item.remove();
+                })
+                $.ajax({ 
+                    type: "get", 
+                    url: `/process/Searching/Customer.php?name=${dataSearch}`, 
+                    
+                    success: function(result){ 
+                        table.classList.add('tableProItem');
+                        table.innerHTML = result;
+                    }
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>
