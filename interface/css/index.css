@@ -471,27 +471,7 @@ footer {
   .dropdown-check-list.visible .items {
     display: block;
   }
-  #table-wrapper {
-    position:relative;
-  }
-  #table-scroll {
-    height:485px;
-    overflow:auto;  
-    
-  }
-  #table-wrapper table {
-    width:100%;
-  
-  }
-  #table-wrapper table * {
-    background: rgba(204, 204, 204, 0.7);
-    color:black;
-  }
-  #table-wrapper table tr th{
-      background-color:var(--primary-color);
-      color: white;
-      height: 43px;
-  }
+
   .deleteItem{
     color: red !important;
   }
@@ -501,3 +481,41 @@ footer {
   .search-input{
       width: 70%;
   }
+  .login{
+      margin: auto;
+      padding-left: 40px;
+      width: 1000px;
+    
+  }
+  .formMessage.err{
+      color: white;
+      font-weight: 700;
+      font-size: 25px;
+      margin: auto;
+      padding: 10px 400px;
+      margin-bottom: 30px;
+      background-color: red;
+      border-radius: 5px;
+  }
+  .pagination{
+    list-style: none;
+    margin-left: 70%;
+}
+.pagination li{
+  float: left;
+  padding: 10px 10px;
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.pagination li.disabled{
+    display: none;
+}
+.pagination li a {
+    text-decoration: none;
+    color: black;
+}
+.page-current{
+    background-color: var(--primary-color) !important;
+}

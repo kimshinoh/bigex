@@ -211,7 +211,18 @@
                                                 echo 'Lỗi';
 
                                             } else {
-                                                $select_table = 'select * from object order by Id+0 asc';
+                                                if (isset($_GET['pageno'])) {
+                                                    $pageno = $_GET['pageno'];
+                                                } else {
+                                                    $pageno = 1;
+                                                }
+                                                $numPage = 4;
+                                                $offset = ($pageno - 1) * $numPage;
+                                                $total_pages_sql = "SELECT COUNT(*) FROM object";
+                                                $result = mysqli_query($db,$total_pages_sql);
+                                                $total_rows = mysqli_fetch_array($result)[0];
+                                                $total_pages = ceil($total_rows / $numPage);
+                                                $select_table = "select * from object order by Id+0 asc limit $offset, $numPage";
 
                                                 $value = mysqli_query($db, $select_table);
                                                 if(mysqli_num_rows($value)>0){
@@ -237,6 +248,19 @@
                                         ?>
                                         </tr>
                                     </table>
+                                    <ul class="pagination">
+                                        <li><a href="?pageno=1">Trang đầu</a></li>
+                                        <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                                            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><?php echo $pageno - 1; ?></a>
+                                        </li>
+                                        <li class="page-current">
+                                            <?php echo $pageno; ?>
+                                        </li>
+                                        <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                                            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>"><?php echo $pageno + 1; ?></a>
+                                        </li>
+                                        <li><a href="?pageno=<?php echo $total_pages; ?>">Trang cuối</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +387,10 @@
                                         <option value="Chiếc">Chiếc</option>
                                         <option value="Thùng">Thùng</option>
                                         <option value="Quyển">Quyển</option>
-                                        <option value="Bộ">Bộ</option>
+                                        <option value="Kg">Kg</option>
+                                        <option value="Bao">Bao</option>
+                                        <option value="Bọc">Bọc</option>
+                                        
 
                                     </select>
                                     <span class="formMessage"></span>
