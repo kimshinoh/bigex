@@ -162,6 +162,9 @@
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="/genCus.php">Khách Hàng</a>
                         </li>
+                        <li class="optionBar-item">
+                            <a class="optionBar-item-link" href="/statistical.php">Thống kê</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -193,18 +196,19 @@
                             </div>
                             <div class="home__content">
                                 <div class="content-layer">
-                                <div id="table-wrapper">
-                                <div id="table-scroll">
                                     <table  class="content">
-                                        <tr class="tablePro">
-                                            <th style="width: 3%;">ID</th>
-                                            <th style="width: 30%;">Tên Sản Phẩm</th>
-                                            <th style="width: 5%;">Đơn Vị</th>
-                                            <th style="width: 33%;">Hình Ảnh</th>
-                                            <th style="width: 22%;">QrCode</th>
-                                            <th style="width: 7%;">#</th>
-                                        </tr>
-                                        <tr id='data'>
+                                        <thead>
+
+                                            <tr class="tablePro">
+                                                <th style="width: 3%;">ID</th>
+                                                <th style="width: 30%;">Tên Sản Phẩm</th>
+                                                <th style="width: 5%;">Đơn Vị</th>
+                                                <th style="width: 33%;">Hình Ảnh</th>
+                                                <th style="width: 22%;">QrCode</th>
+                                                <th style="width: 7%;">#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table-body">
                                         <?php
                                             $db = mysqli_connect('localhost','root','12345','quanlykho',3306);
                                             if(!$db){
@@ -246,7 +250,7 @@
                                             }
                                                 
                                         ?>
-                                        </tr>
+                                        </tbody>
                                     </table>
                                     <ul class="pagination">
                                         <li><a href="?pageno=1">Trang đầu</a></li>
@@ -263,8 +267,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -421,19 +423,11 @@
         $(document).ready(function(){ 
             $('#search-icon').click(function(){
                 var dataSearch = document.getElementById('search-input').value;
-                var table = document.getElementById('data');
-                table.classList.remove('tableProItem');
-                var remove = document.getElementsByClassName('tableProItem');
-                var arrayRemove = Array.from(remove);
-                arrayRemove.forEach((item) => {
-                     item.remove();
-                })
+                var table = document.getElementById('table-body');
                 $.ajax({ 
                     type: "get", 
-                    url: `/process/Searching/Product.php?name=${dataSearch}`, 
-                    
+                    url: `/process/Searching/Product.php?name=${dataSearch}`,       
                     success: function(result){ 
-                        table.classList.add('tableProItem');
                         table.innerHTML = result;
                     }
                 });

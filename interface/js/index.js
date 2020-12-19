@@ -24,11 +24,7 @@ checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
     }
 }
 function numberWithCommas(x) {
-
     return  x.split('.').join('').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-    
-
 }
 // add.onclick = ()=> {
 //     checkList.classList.remove('visible');

@@ -163,6 +163,9 @@
                         <li class="optionBar-item">
                             <a class="optionBar-item-link" href="/genCus.php">Khách Hàng</a>
                         </li>
+                        <li class="optionBar-item">
+                            <a class="optionBar-item-link" href="/statistical.php">Thống kê</a>
+                        </li>
                     </ul>
                 </div>
             </div>

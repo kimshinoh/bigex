@@ -1,5 +1,5 @@
 body{
-    background-image: url(../img/back4.jpg);
+    background-image: url(../img/back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.85; 
@@ -260,6 +260,10 @@ footer {
     font-size: 1.4rem;
     color: white;
 }
+.tablePro th{
+    height: 50px;
+    background-color: var(--primary-color);
+}
 .tableProItem{
     font-size: 1.3rem;
     text-align: center;
@@ -270,7 +274,7 @@ footer {
 }
 .tableProImg{
     max-width: 100%;
-    max-height: 100px;
+    max-height: 90px;
 }
 /* footer */
 .footer{
@@ -519,3 +523,17 @@ footer {
 .page-current{
     background-color: var(--primary-color) !important;
 }
+#stati-list{
+    list-style: none;
+    font-size: 1.5rem;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+#stati-list thead th{
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+}
+

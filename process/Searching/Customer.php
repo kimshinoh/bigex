@@ -9,7 +9,7 @@
 		{
 
 			$name = $_REQUEST['name'];
-			$sql_query="select * from customer  where DisplayName = '".$name."'";
+			$sql_query="select * from customer  where DisplayName like '%".$name."%'";
             $data = mysqli_query($db,$sql_query);
             if(mysqli_num_rows($data)>0){
                 while($r=mysqli_fetch_array($data)){

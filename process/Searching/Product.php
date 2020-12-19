@@ -9,12 +9,12 @@
 		{
 
 			$name = $_REQUEST['name'];
-			$sql_query="select * from object  where DisplayName = '".$name."'";
+			$sql_query="select * from object  where DisplayName like '%".$name."%'";
             $data = mysqli_query($db,$sql_query);
             if(mysqli_num_rows($data)>0){
                 while($r=mysqli_fetch_array($data)){
                     $id = $r['Id'];
-                    echo '<tr class="tableProItem">';
+                    echo '<tr id="data" class="tableProItem">';
                     echo '<td>'.$id.'</td>';
                     echo '<td>'.$r['DisplayName'].'</td>';
                     echo '<td>'.$r['Unit'].'</td>';
