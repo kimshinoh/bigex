@@ -6,10 +6,10 @@
             if($password == 'admin'){
                 header('location:../../general.php');
             } else {
-                header("location:../../Login.php?err=mk");
+                header("location:../../XLogin/Login.php?err=mk");
             }
         } else {
-            header("location:../../Login.php?err=tk");
+            header("location:../../XLogin/Login.php?err=tk");
         }
     } 
 	?>
