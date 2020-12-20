@@ -537,4 +537,6 @@ footer {
     background-color: var(--primary-color);
     color: white;
 }
-
+#stati-list tbody td{
+    background-color: white;
+}
