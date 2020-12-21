@@ -176,12 +176,14 @@
                         <div class="content-layer">
                             <div class="home__filter home-static">
                                 <span class="logForm_title">Thông tin muốn thống kê: </span>
-                                <select name="information" id="information" style="width: 100px; height: 40px; font-size: 1.4rem;font-weight:600; margin-left: 10px; margin-right: 50px;">
+                                <select name="information" id="information" style="width: 120px; height: 40px; font-size: 1.4rem;font-weight:600; margin-left: 10px; margin-right: 50px;">
                                     <option value="input">Nhập Hàng</option>
                                     <option value="output">Xuất Hàng</option>
                                 </select>
                                 <span class="logForm_title">Ngày cần thống kê: </span>
                                 <input style="width: 300px; margin-left: 10px; margin-bottom: 5px" id="DateSearch" name="DateSearch" type="date" class="logForm_input" required>
+                                <span style="margin-left:10px; font-size: 1.5rem">=></span>
+                                <input style="width: 300px; margin-left: 10px; margin-bottom: 5px" id="DateAfter" name="DateAfter" type="date" class="logForm_input" required>
                                 <button id='btn-search' class="btn btn-main" style="margin-left: 30px; cursor: pointer">Thống kê</button>
                                 <button id='export' class="btn btn-main" style="margin-left: 10px; cursor: pointer">Xuất file</button>
                             </div>
@@ -190,6 +192,7 @@
                                     <th>Sản phẩm</th>
                                     <th>Số lượng</th>
                                     <th>Đối tác</th>
+                                    <th>Giá</th>
                                 </thead>
                                 <tbody id="body-list">
 
@@ -295,12 +298,22 @@
             $('#btn-search').click(function(){
                 var dateSearch = document.getElementById('DateSearch').value;
                 var information = document.getElementById('information').value;
+                var dateAfter = document.getElementById('DateAfter').value;
                 var bodyList = document.getElementById('body-list');
                 $.ajax({ 
                     type: "get", 
-                    url: `/process/Searching/Statistical.php?DateSearch=${dateSearch}&Information=${information}`, 
+                    url: `/process/Searching/Statistical.php?DateSearch=${dateSearch}&DateAfter=${dateAfter}&Information=${information}`, 
                     success: function(result){ 
                         bodyList.innerHTML = result;
+                        var priceElement = document.getElementsByClassName('price');
+                        var countElement = document.getElementsByClassName('count');
+                        let total = 0;
+                        var arrayPrice = Array.from(priceElement);
+                        var arrayCount = Array.from(countElement);
+                        for(i = 0 ; i< arrayPrice.length ; i++){
+                            total += ((+arrayPrice[i].innerHTML) * (+arrayCount[i].innerHTML))
+                        }
+                        bodyList.innerHTML += `<tr><td colspan='4'><span style='margin-left:80%; font-weight: 600; font-size: 1.6rem;'>Tổng &emsp;&emsp;&emsp;&emsp;&emsp;  ${total}</span></td></tr>`;
                     }
                 });
             });
