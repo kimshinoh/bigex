@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<dssinhvien>
+    <info>Danh Sách Sinh Viên CNTT</info>
+    <sinhvien hoten="Phạm Đăng Ban" diachi="Hà Nội" lop="XML01" maso="S01">
+        <monhoc tinchi="3" tenmh="Java 1" mamh="M01">8</monhoc>
+        <monhoc tinchi="3" tenmh="Lập trình trực quan" mamh="M02">7</monhoc>
+        <monhoc tinchi="3" tenmh="Cơ sở dữ liệu" mamh="M03">9</monhoc>
+        <monhoc tinchi="3" tenmh="Mạng máy tính" mamh="M04">7</monhoc>
+        <monhoc tinchi="2" tenmh="Tư tường Hồ Chí Minh" mamh="M05">6</monhoc>
+    </sinhvien>
+    <sinhvien hoten="Nguyễn Thị Kim Cúc" diachi="Nam Định" lop="XML01" maso="S02">
+        <monhoc tinchi="3" tenmh="Lập trình trực quan" mamh="M02">6</monhoc>
+        <monhoc tinchi="3" tenmh="Cơ sở dữ liệu" mamh="M03">7</monhoc>
+        <monhoc tinchi="3" tenmh="Mạng máy tính" mamh="M04">8</monhoc>
+        <monhoc tinchi="2" tenmh="Tư tường Hồ Chí Minh" mamh="M05">9</monhoc>
+    </sinhvien>
+    <sinhvien hoten="Tạ Quốc Yên Gam" diachi="Hải Phòng" lop="XML01" maso="S03">
+        <monhoc tinchi="3" tenmh="Lập trình trực quan" mamh="M02">7</monhoc>
+        <monhoc tinchi="3" tenmh="Cơ sở dữ liệu" mamh="M03">8</monhoc>
+        <monhoc tinchi="3" tenmh="Mạng máy tính" mamh="M04">9</monhoc>
+        <monhoc tinchi="2" tenmh="Tư tường Hồ Chí Minh" mamh="M05">7</monhoc>
+    </sinhvien>
+</dssinhvien>
+

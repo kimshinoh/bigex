@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<dssinhvien>
+  <sinhvien>
+    <masv>sv01</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv02</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv03</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv04</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv05</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv06</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv07</masv>
+    <tensv>H&#x1ED3; H&#x1ED3;ng &#x110;&#x1EE9;c</tensv>
+    <ngaysinh>26/09/2000</ngaysinh>
+    <diachi>Thanh Ho&#xE1;</diachi>
+    <sdt>0963 355 884</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>C&#xF4;ng ngh&#x1EC7; XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>nv08</masv>
+    <tensv>V&#x169; Ph&#x1B0;&#x1A1;ng Anh</tensv>
+    <ngaysinh>2000-12-27</ngaysinh>
+    <diachi>Nam &#x110;&#x1ECB;nh</diachi>
+    <sdt>0967 108 227</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>nv09</masv>
+    <tensv>Nguy&#x1EC5;n Long V&#x169; </tensv>
+    <ngaysinh>2000-12-14</ngaysinh>
+    <diachi>H&#xE0; N&#x1ED9;i</diachi>
+    <sdt>0968 918 471</sdt>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>nv10</masv>
+    <tensv>Tr&#x1EA7;n V&#x103;n Huy</tensv>
+    <ngaysinh/>
+    <diachi/>
+    <sdt/>
+    <lop>&#x110;H8C7</lop>
+    <monhoc>XML</monhoc>
+  </sinhvien>
+</dssinhvien>

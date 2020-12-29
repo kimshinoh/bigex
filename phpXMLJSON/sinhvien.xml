@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<dssinhvien>
+  <sinhvien>
+    <masv>sv01</masv>
+    <tensv>Nguyen Minh Hieu</tensv>
+    <ngaysinh>25/05/2000</ngaysinh>
+    <diachi>Ha Noi</diachi>
+    <sdt>01676168143</sdt>
+    <lop>DH8C7</lop>
+    <monhoc>Cong Nghe XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv02</masv>
+    <tensv>Nguyen Minh HieN</tensv>
+    <ngaysinh>25/04/2000</ngaysinh>
+    <diachi>Ha Noi</diachi>
+    <sdt>01676168145</sdt>
+    <lop>DH8C7</lop>
+    <monhoc>Cong Nghe XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv03</masv>
+    <tensv>Nguyen Minh Mieu</tensv>
+    <ngaysinh>05/05/2000</ngaysinh>
+    <diachi>Ha Nam</diachi>
+    <sdt>01676167143</sdt>
+    <lop>DH8C7</lop>
+    <monhoc>Cong Nghe XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv04</masv>
+    <tensv>Nguyen Minh Khieu</tensv>
+    <ngaysinh>25/08/2000</ngaysinh>
+    <diachi>Ha Noi</diachi>
+    <sdt>01676168243</sdt>
+    <lop>DH8C7</lop>
+    <monhoc>Cong Nghe XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>sv05</masv>
+    <tensv>Nguyen Minh Thieu</tensv>
+    <ngaysinh>25/01/2000</ngaysinh>
+    <diachi>Ha Noi</diachi>
+    <sdt>01676168133</sdt>
+    <lop>DH8C7</lop>
+    <monhoc>Cong Nghe XML</monhoc>
+  </sinhvien>
+  <sinhvien>
+    <masv>012</masv>
+    <tensv>hieu</tensv>
+    <ngaysinh>25</ngaysinh>
+    <diachi>hanoi</diachi>
+    <sdt>016989</sdt>
+    <lop>dh8c7</lop>
+    <monhoc>json</monhoc>
+  </sinhvien>
+</dssinhvien>

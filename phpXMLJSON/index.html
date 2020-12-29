@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Document</title>
+</head>
+<style>
+	body{
+	margin:40px 150px;
+	font:normal 16pt Arial;
+	}
+	h3{
+	color:white;
+	text-shadow: 2px 2px 2px red,-1px -1px 1px black;
+	}
+	h1{
+		color:yellow; 
+		text-shadow: 2px 2px 2px red,-1px -1px 1px black;
+	}
+</style>
+<body>
+	<script type="text/javascript">
+		var xmlDoc=null;
+		function load(){
+			var xml=new XMLHttpRequest();
+			xml.open("GET","sinhvien.xml",false);
+			xml.send(null);
+			xmlDOC=xml.responseXML;
+		}
+		function display(){
+			 j=1;
+			 list=xmlDOC.documentElement.childNodes;
+			    list=xmlDOC.getElementsByTagName("sinhvien");
+			 str="<h3>Danh sach sinh vien</h3>";
+			for(i=0;i<list.length;i++){
+				 maso=list[i].getAttribute("maso");
+				 hoten=list[i].getAttribute("hoten");
+			      lop=list[i].getAttribute("lop");
+				 diachi=list[i].getAttribute("diachi");
+				str +=j+":"+maso+"-"+hoten+"-"+lop+"-"+diachi+"<br>";
+				j++;
+			}
+			document.getElementById('kq').innerHTML=str;
+		
+		}
+		load();
+       function bangdiem(){
+       	element=find(prompt("Nhập mã sinh viên"));
+       	if(element!=null){
+       		list=element.childNodes;
+       		j=1;
+			    str="<h3>Bang diem cua sinh vien</h3>";
+       		    str+=hoten+","+lop+"<br><br>";
+       		for(i=0;i<list.length;i++){	
+       			if(list[i].nodeType==1){
+       				monhoc=list[i].getAttribute("tenmh");
+       				diem=list[i].textContent;
+       				str+=j+"-"+monhoc+"-"+diem+"<br>";
+       				j++;
+
+       			}
+       		}
+       		document.getElementById("kq").innerHTML=str;
+       	}else{
+       		clear();
+       		alert("Khong co sinh vien nay");
+       	}
+       }
+       function find(code){
+       	node=null;
+       	list=xmlDOC.getElementsByTagName("sinhvien");
+       	for(i=0;i<list.length;i++){
+       		if(list[i].getAttribute("maso")==code){
+       			node=list[i];
+       			hoten=node.getAttribute("hoten");
+       			lop=node.getAttribute("lop");
+       			break;
+       		}
+       	}
+       	return node;
+       }
+	</script>
+	<h1>XML và Javascipt</h1>
+	<a href="sinhvien.xml">Xem sinhvien.xml</a><br>
+	<a href="javascript:display();">Danh sách sinh viên</a><br>
+	<a href="javascript:bangdiem();">Bảng điểm một sinh viên</a><br>
+	<div id="kq"></div>
+	
+
+</body>
+</html>

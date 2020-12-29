@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<datasinhvien>
+  <sinhvien id="1">
+    <masinhvien>01</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien id="2">
+    <masinhvien>02</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien id="3">
+    <masinhvien>03</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien id="4">
+    <masinhvien>04</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien id="5">
+    <masinhvien>05</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien id="6">
+    <masinhvien>06</masinhvien>
+    <hovaten>Vai thi loz</hovaten>
+    <ntnamsinh>09/12/2000</ntnamsinh>
+    <quequan>BecGiang</quequan>
+    <diemtinhoc>10</diemtinhoc>
+  </sinhvien>
+  <sinhvien>
+    <masinhvien>07</masinhvien>
+    <hovaten>Djt me tu</hovaten>
+    <ntnamsinh>12/12/12</ntnamsinh>
+    <quequan>sam s0n</quequan>
+    <diemtinhoc>0</diemtinhoc>
+  </sinhvien>
+</datasinhvien>

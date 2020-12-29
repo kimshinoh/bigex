@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<dssinhvien>
+	<info>Danh sách sinh viên CNTT</info>
+	<sinhvien maso="S01" hoten="Phạm Đăng Ban" lop="XML01" diachi="Hà Nội">
+	<monhoc mamh="M01" tenmh="Java 1" tinchi="3">8</monhoc>
+	<monhoc mamh="M02" tenmh="lập trình trực quan" tinchi="3">7</monhoc>
+	<monhoc mamh="M03" tenmh="cơ sở dữ liệu" tinchi="3">9</monhoc>
+	<monhoc mamh="M04" tenmh="mạng máy tính" tinchi="3">7</monhoc>
+	<monhoc mamh="M04" tenmh="tư tưởng hồ chí minh" tinchi="2">6</monhoc>
+    </sinhvien>
+
+    <sinhvien maso="S03" hoten="Nguyễn Thị Kim Cúc" lop="XML01" diachi="Hà Nội">
+	<monhoc mamh="M01" tenmh="Java 1" tinchi="3">8</monhoc>
+	<monhoc mamh="M02" tenmh="lập trình trực quan" tinchi="3">7</monhoc>
+	<monhoc mamh="M03" tenmh="cơ sở dữ liệu" tinchi="3">9</monhoc>
+	<monhoc mamh="M04" tenmh="mạng máy tính" tinchi="3">7</monhoc>
+	<monhoc mamh="M04" tenmh="tư tưởng hồ chí minh" tinchi="2">6</monhoc>
+    </sinhvien>
+
+    <sinhvien maso="S04" hoten="Nguyễn Minh Hiếu" lop="XML01" diachi="Hà Nội">
+	<monhoc mamh="M01" tenmh="Java 1" tinchi="3">8</monhoc>
+	<monhoc mamh="M02" tenmh="lập trình trực quan" tinchi="3">7</monhoc>
+	<monhoc mamh="M03" tenmh="cơ sở dữ liệu" tinchi="3">9</monhoc>
+	<monhoc mamh="M04" tenmh="mạng máy tính" tinchi="3">7</monhoc>
+	<monhoc mamh="M04" tenmh="tư tưởng hồ chí minh" tinchi="2">6</monhoc>
+    </sinhvien>
+
+    <sinhvien maso="S05" hoten="Phạm Đăng Quân" lop="XML01" diachi="Hà Nội">
+	<monhoc mamh="M01" tenmh="Java 1" tinchi="3">8</monhoc>
+	<monhoc mamh="M02" tenmh="lập trình trực quan" tinchi="3">7</monhoc>
+	<monhoc mamh="M03" tenmh="cơ sở dữ liệu" tinchi="3">9</monhoc>
+	<monhoc mamh="M04" tenmh="mạng máy tính" tinchi="3">7</monhoc>
+	<monhoc mamh="M04" tenmh="tư tưởng hồ chí minh" tinchi="2">6</monhoc>
+    </sinhvien>
+
+    <sinhvien maso="S06" hoten="Phạm Hồng Hưng" lop="XML01" diachi="Hà Nội">
+	<monhoc mamh="M01" tenmh="Java 1" tinchi="3">8</monhoc>
+	<monhoc mamh="M02" tenmh="lập trình trực quan" tinchi="3">7</monhoc>
+	<monhoc mamh="M03" tenmh="cơ sở dữ liệu" tinchi="3">9</monhoc>
+	<monhoc mamh="M04" tenmh="mạng máy tính" tinchi="3">7</monhoc>
+	<monhoc mamh="M04" tenmh="tư tưởng hồ chí minh" tinchi="2">6</monhoc>
+    </sinhvien>
+</dssinhvien>
