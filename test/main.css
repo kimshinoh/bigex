@@ -1,0 +1,31 @@
+table {
+    width: 80%;
+    margin: auto;
+}
+tr{
+    height: 50px;
+}
+button{
+    margin: 30px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+td{
+    text-align: center;
+}
+.form-input{
+    width: 50%;
+}
+.form-add{
+    width: 50% !important;
+}
+.form-title{
+    text-align: end !important;
+}
+.XML {
+    background-color: rgb(107, 107, 107);
+    color: white;
+    font-size: 1.4rem;
+}

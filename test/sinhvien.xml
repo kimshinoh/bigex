@@ -49,4 +49,11 @@
     <quequan>sam s0n</quequan>
     <diemtinhoc>0</diemtinhoc>
   </sinhvien>
+  <sinhvien>
+    <masinhvien>08</masinhvien>
+    <hovaten>tu ngu</hovaten>
+    <ntnamsinh>123123</ntnamsinh>
+    <quequan>vcl</quequan>
+    <diemtinhoc>123</diemtinhoc>
+  </sinhvien>
 </datasinhvien>

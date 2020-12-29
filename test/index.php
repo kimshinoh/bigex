@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài kiểm tra</title>
+    <link rel="stylesheet" href="./main.css">
     <style>
     a{
         text-decoration: none;
@@ -11,13 +12,14 @@
 </style>
 </head>
 <body style="text-align: center;">
+    <h1>Danh sách sinh viên</h1>
 
-    <table style="display:inline-block;"  border="2" align="center">
+    <table border='1'>
     <?php
     $doc=new DOMDocument();
     $doc->load('./sinhvien.xml');
     $sinhviens=$doc->getElementsByTagName("sinhvien");
-    echo "<tr background:>
+    echo "<tr>
         <th>Ma Sinh Vien</th>
         <th>Ho va ten</th>
         <th>Ngay sinh</th>
@@ -32,7 +34,7 @@
         $c=$sinhvien->getElementsByTagName("ntnamsinh");
         $ntnamsinh=$c->item(0)->nodeValue;
         $d=$sinhvien->getElementsByTagName("quequan");
-        $quequan=$c->item(0)->nodeValue;
+        $quequan=$d->item(0)->nodeValue;
         $e=$sinhvien->getElementsByTagName("diemtinhoc");
         $diemtinhoc=$e->item(0)->nodeValue;
 
